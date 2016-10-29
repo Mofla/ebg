@@ -28,7 +28,7 @@
                     ?>
                 </td>
                 <td>                <a href="<?= $this->Url->build(['controller' => 'barracks','action' => 'view' , $barrack->id ,strtolower(str_replace(' ', '-', removeAccents($barrack->name)))]); ?>" class="btn btn-default btn-sm" ><i class="glyphicon glyphicon-eye-open"></i> Voir en détails</a>
-                    <a href="<?= $this->Url->build(['controller' => 'barracks','action' => 'edit', $barrack->id]); ?>" data-original-title="Editer cette caserne" data-toggle="tooltip" type="button" class="btn btn-xs btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
+                    <a href="<?= $this->Url->build(['controller' => 'barracks','action' => 'edit', $barrack->id,strtolower(str_replace(' ', '-', removeAccents($barrack->name)))]); ?>" data-original-title="Editer cette caserne" data-toggle="tooltip" type="button" class="btn btn-xs btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
 
                     <?= $this->Form->postLink(__('<i class="glyphicon glyphicon-remove"></i>'),
                     ['controller' => 'barracks', 'action' => 'delete', $barrack->id],

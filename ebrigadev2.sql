@@ -1,24 +1,230 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.5.1
+-- version 3.4.11.1deb2+deb7u4
 -- http://www.phpmyadmin.net
 --
--- Client :  127.0.0.1
--- Généré le :  Lun 12 Septembre 2016 à 16:47
--- Version du serveur :  5.7.11
--- Version de PHP :  5.6.19
+-- Client: localhost
+-- Généré le: Ven 28 Octobre 2016 à 20:50
+-- Version du serveur: 5.5.49
+-- Version de PHP: 5.6.14-1
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+/*!40101 SET NAMES utf8 */;
 
 --
--- Base de données :  `zzzzzz`
+-- Base de données: `ebrigadev2`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `alertes`
+--
+
+CREATE TABLE IF NOT EXISTS `alertes` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `equipe` varchar(255) NOT NULL,
+  `list` longtext NOT NULL,
+  `message` longtext NOT NULL,
+  `success` tinyint(4) NOT NULL DEFAULT '0',
+  `liste` tinyint(4) NOT NULL,
+  `date_envoi` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=32 ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `availabilities`
+--
+
+CREATE TABLE IF NOT EXISTS `availabilities` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `result` text NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `modified` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
+
+--
+-- Contenu de la table `availabilities`
+--
+
+INSERT INTO `availabilities` (`id`, `result`, `user_id`, `modified`) VALUES
+(5, '2016-08-29T00:00:00Z|2016-09-01T00:00:00Z|APRES-MIDI,2016-10-08T00:00:00Z|2016-10-10T00:00:00Z|ABSENT,2016-10-15T00:00:00Z|2016-10-17T00:00:00Z|ABSENT,2016-10-22T00:00:00Z|2016-10-24T00:00:00Z|ASTREINTE,2016-10-29T00:00:00Z|2016-10-31T00:00:00Z|ASTREINTE,2016-09-26T00:00:00Z|2016-10-01T00:00:00Z|MATIN,2016-10-03T00:00:00Z|2016-10-05T00:00:00Z|MATIN,2016-10-05T00:00:00Z|2016-10-07T00:00:00Z|APRES-MIDI,2016-10-07T00:00:00Z|2016-10-08T00:00:00Z|NUIT,2016-10-10T00:00:00Z|2016-10-13T00:00:00Z|NUIT,2016-09-26T00:00:00Z|2016-09-29T00:00:00Z|MIDI,2016-09-29T00:00:00Z|2016-10-01T00:00:00Z|APRES-MIDI,2016-10-31T00:00:00Z|2016-11-07T00:00:00Z|MATIN,2016-10-31T00:00:00Z|2016-11-07T00:00:00Z|MIDI,2016-10-31T00:00:00Z|2016-11-07T00:00:00Z|APRES-MIDI,2016-10-20T00:00:00Z|2016-10-23T00:00:00Z|SOIR,2016-10-19T00:00:00Z|2016-10-22T00:00:00Z|APRES-MIDI,2016-10-18T00:00:00Z|2016-10-21T00:00:00Z|MIDI,2016-10-17T00:00:00Z|2016-10-18T00:00:00Z|NUIT,2016-10-24T00:00:00Z|2016-10-29T00:00:00Z|ABSENT,2016-10-02T00:00:00Z|2016-10-03T00:00:00Z|ABSENT,2016-10-01T00:00:00Z|2016-10-02T00:00:00Z|ABSENT', 4, '2016-10-28 19:23:32'),
+(6, '2016-09-03T00:00:00Z|2016-09-05T00:00:00Z|ABSENT,2016-09-10T00:00:00Z|2016-09-12T00:00:00Z|ABSENT,2016-09-14T00:00:00Z|2016-09-19T00:00:00Z|ASTREINTE,2016-09-25T00:00:00Z|2016-09-26T00:00:00Z|ABSENT,2016-10-02T00:00:00Z|2016-10-03T00:00:00Z|ABSENT,2016-08-29T00:00:00Z|2016-09-02T00:00:00Z|APRES-MIDI,2016-09-06T00:00:00Z|2016-09-09T00:00:00Z|APRES-MIDI,2016-09-19T00:00:00Z|2016-09-20T00:00:00Z|SOIR,2016-09-21T00:00:00Z|2016-09-22T00:00:00Z|SOIR,2016-09-23T00:00:00Z|2016-09-24T00:00:00Z|SOIR,2016-09-26T00:00:00Z|2016-09-28T00:00:00Z|NUIT,2016-09-29T00:00:00Z|2016-10-01T00:00:00Z|NUIT,2016-09-23T00:00:00Z|2016-09-24T00:00:00Z|NUIT,2016-09-06T00:00:00Z|2016-09-07T00:00:00Z|MIDI,2016-09-06T00:00:00Z|2016-09-07T00:00:00Z|MATIN,2016-09-06T00:00:00Z|2016-09-07T00:00:00Z|SOIR,2016-09-06T00:00:00Z|2016-09-07T00:00:00Z|NUIT,2016-09-05T00:00:00Z|2016-09-06T00:00:00Z|ASTREINTE,2016-09-28T00:00:00Z|2016-09-29T00:00:00Z|ABSENT,2016-09-02T07:30:00Z|2016-09-02T13:00:00Z|MATIN', 1, '2016-09-07 06:13:19'),
+(7, '2016-09-03T00:00:00Z|2016-09-05T00:00:00Z|ABSENT,2016-09-10T00:00:00Z|2016-09-12T00:00:00Z|ABSENT,2016-09-14T00:00:00Z|2016-09-19T00:00:00Z|ASTREINTE,2016-09-25T00:00:00Z|2016-09-26T00:00:00Z|ABSENT,2016-10-02T00:00:00Z|2016-10-03T00:00:00Z|ABSENT,2016-08-29T00:00:00Z|2016-09-02T00:00:00Z|APRES-MIDI,2016-09-06T00:00:00Z|2016-09-09T00:00:00Z|APRES-MIDI,2016-09-19T00:00:00Z|2016-09-20T00:00:00Z|SOIR,2016-09-21T00:00:00Z|2016-09-22T00:00:00Z|SOIR,2016-09-23T00:00:00Z|2016-09-24T00:00:00Z|SOIR,2016-09-26T00:00:00Z|2016-09-28T00:00:00Z|NUIT,2016-09-29T00:00:00Z|2016-10-01T00:00:00Z|NUIT,2016-09-23T00:00:00Z|2016-09-24T00:00:00Z|NUIT,2016-09-06T00:00:00Z|2016-09-07T00:00:00Z|MIDI,2016-09-06T00:00:00Z|2016-09-07T00:00:00Z|MATIN,2016-09-06T00:00:00Z|2016-09-07T00:00:00Z|SOIR,2016-09-06T00:00:00Z|2016-09-07T00:00:00Z|NUIT,2016-09-05T00:00:00Z|2016-09-06T00:00:00Z|ASTREINTE,2016-09-28T00:00:00Z|2016-09-29T00:00:00Z|ABSENT,2016-09-02T07:30:00Z|2016-09-02T13:00:00Z|MATIN', 2, '2016-09-07 06:13:19'),
+(8, '', 3, '2016-09-26 09:23:24'),
+(9, '2016-09-26T00:00:00Z|2016-10-01T00:00:00Z|ABSENT,2016-10-01T00:00:00Z|2016-10-10T00:00:00Z|ASTREINTE,2016-10-03T00:00:00Z|2016-10-06T00:00:00Z|MATIN,2016-10-04T00:00:00Z|2016-10-09T00:00:00Z|MIDI,2016-10-11T00:00:00Z|2016-10-15T00:00:00Z|SOIR,2016-10-11T00:00:00Z|2016-10-15T00:00:00Z|NUIT,2016-10-11T00:00:00Z|2016-10-15T00:00:00Z|MATIN,2016-10-10T00:00:00Z|2016-10-15T00:00:00Z|APRES-MIDI', 16, '2016-10-02 21:16:00');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `barracks`
+--
+
+CREATE TABLE IF NOT EXISTS `barracks` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `parent_id` int(11) DEFAULT NULL,
+  `code` int(11) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `address` varchar(255) NOT NULL,
+  `address_complement` varchar(255) NOT NULL,
+  `city_id` int(11) NOT NULL,
+  `phone` varchar(14) NOT NULL,
+  `fax` varchar(14) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `website_url` varchar(255) NOT NULL,
+  `ordre` varchar(255) NOT NULL,
+  `rib` varchar(255) NOT NULL,
+  `lft` int(11) NOT NULL,
+  `rght` int(11) NOT NULL,
+  `level` int(11) NOT NULL,
+  `created` datetime NOT NULL,
+  `modified` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=35 ;
+
+--
+-- Contenu de la table `barracks`
+--
+
+INSERT INTO `barracks` (`id`, `parent_id`, `code`, `name`, `address`, `address_complement`, `city_id`, `phone`, `fax`, `email`, `website_url`, `ordre`, `rib`, `lft`, `rght`, `level`, `created`, `modified`) VALUES
+(18, 34, 57, 'Protection Civile de Moselle', '6 chemin des dames', 'je ne sais ou', 34942, '0687505196', '0687505196', '57@protection-civile.org', 'www.adpc57.fr', 'ADPC57', '658555555555', 3, 4, 2, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(19, 34, 88, 'Protection Civile des Vosges', '6 quartier de la Magdeleine', 'Maison des Associations', 34755, '0687505196', '0606060606', 'vosges@protection-civile.org', 'www.adpc88.fr', 'ADPC88', 'adpc88', 5, 14, 2, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(20, 19, 882, 'Antenne de Chatel-sur-Moselle', 'rue du Paquis', '-', 34842, '0687505196', '0606060606', 'vosges2@protection-civile.org', 'www.adpc88.fr', 'ADPC88', 'adpc88', 6, 13, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(34, 33, 1, 'Protection Civile du Grand-Est', 'aucune', 'aucune', 0, '0687505196', '0687505196', 'grand-est@protection-civile.org', 'grand-est.protection-civile.org', 'grand-est', 'grand-est', 2, 15, 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(29, 20, 454, 'sous section test', 'sous section test', '', 11318, '0245857755', '', 'perrinolivier88@gmail.com', '', '', '', 9, 10, 4, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(33, NULL, 0, 'Fédération Nationale de Protection Civile', '107 Quai du Docteur Dervaux', '-', 0, '0687505196', '0687505196', 'contact@protection-civile.org', 'www.protection-civile.org', 'FNPC', 'FNPC', 1, 16, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(32, 20, 45456, 'test', 'test', '', 27264, '0258885545', '', 'dfhgfdh@free.fr', '', '', '', 11, 12, 4, '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `barracks_materials`
+--
+
+CREATE TABLE IF NOT EXISTS `barracks_materials` (
+  `barrack_id` int(11) NOT NULL DEFAULT '0',
+  `material_id` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`barrack_id`,`material_id`),
+  KEY `material_id` (`material_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Contenu de la table `barracks_materials`
+--
+
+INSERT INTO `barracks_materials` (`barrack_id`, `material_id`) VALUES
+(18, 157),
+(19, 153),
+(19, 158),
+(20, 156),
+(20, 159);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `barracks_users`
+--
+
+CREATE TABLE IF NOT EXISTS `barracks_users` (
+  `user_id` int(11) NOT NULL DEFAULT '0',
+  `barrack_id` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`barrack_id`,`user_id`),
+  KEY `user_id` (`user_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Contenu de la table `barracks_users`
+--
+
+INSERT INTO `barracks_users` (`user_id`, `barrack_id`) VALUES
+(11, 2),
+(1, 19),
+(2, 19),
+(3, 19),
+(16, 19);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `barracks_vehicles`
+--
+
+CREATE TABLE IF NOT EXISTS `barracks_vehicles` (
+  `barrack_id` int(11) NOT NULL DEFAULT '0',
+  `vehicle_id` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`barrack_id`,`vehicle_id`),
+  KEY `vehicle_id` (`vehicle_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Contenu de la table `barracks_vehicles`
+--
+
+INSERT INTO `barracks_vehicles` (`barrack_id`, `vehicle_id`) VALUES
+(18, 22),
+(19, 15),
+(19, 18),
+(19, 22),
+(19, 23),
+(19, 24),
+(19, 25),
+(19, 26),
+(19, 27),
+(19, 28),
+(19, 29),
+(19, 30),
+(19, 31),
+(19, 32),
+(19, 33),
+(19, 34),
+(19, 35),
+(19, 36),
+(19, 37),
+(19, 38),
+(19, 39),
+(19, 40),
+(19, 41),
+(19, 42),
+(19, 43),
+(19, 44),
+(19, 45),
+(19, 66),
+(19, 67),
+(19, 68),
+(19, 69),
+(19, 70);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `barrack_types`
+--
+
+CREATE TABLE IF NOT EXISTS `barrack_types` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `name` (`name`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `bills`
+--
+
+CREATE TABLE IF NOT EXISTS `bills` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -26,14 +232,19 @@ SET time_zone = "+00:00";
 -- Structure de la table `cities`
 --
 
-CREATE TABLE `cities` (
-  `id` mediumint(8) UNSIGNED NOT NULL,
+CREATE TABLE IF NOT EXISTS `cities` (
+  `id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
   `dpt_id` varchar(3) DEFAULT NULL,
   `city` varchar(45) DEFAULT NULL,
   `zipcode` varchar(255) DEFAULT NULL,
   `longitude` float DEFAULT NULL,
-  `latitude` float DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  `latitude` float DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `ville_departement` (`dpt_id`),
+  KEY `ville_nom_reel` (`city`),
+  KEY `ville_code_postal` (`zipcode`),
+  KEY `ville_longitude_latitude_deg` (`longitude`,`latitude`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=36831 ;
 
 --
 -- Contenu de la table `cities`
@@ -1009,12 +1220,12 @@ INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`
 (967, '02', 'Savy', '02590', 3.18333, 49.8),
 (968, '02', 'Puisieux-et-Clanlieu', '02120', 3.66667, 49.85),
 (969, '02', 'Ciry-Salsogne', '02220', 3.46667, 49.3667),
-(970, '02', 'Crupilly', '02120', 3.75, 49.9167),
+(970, '02', 'Crupilly', '02120', 3.75, 49.9167);
+INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`) VALUES
 (971, '02', 'Dommiers', '02600', 3.21667, 49.3333),
 (972, '02', 'Étreillers', '02590', 3.15, 49.8167),
 (973, '02', 'Chouy', '02210', 3.25, 49.2),
-(974, '02', 'Landifay-et-Bertaignemont', '02120', 3.6, 49.8167);
-INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`) VALUES
+(974, '02', 'Landifay-et-Bertaignemont', '02120', 3.6, 49.8167),
 (975, '02', 'Silly-la-Poterie', '02460', 3.15, 49.2),
 (976, '02', 'Nauroy', '02420', 3.25, 49.95),
 (977, '02', 'Limé', '02220', 3.55, 49.3167),
@@ -1955,7 +2166,8 @@ INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`
 (1912, '05', 'La Faurie', '05140', 5.73333, 44.5667),
 (1913, '05', 'La Bâtie-Montsaléon', '05700', 5.75, 44.45),
 (1914, '05', 'La Bâtie-Vieille', '05000', 6.16667, 44.55),
-(1915, '05', 'Le Noyer', '05500', 6.01667, 44.7),
+(1915, '05', 'Le Noyer', '05500', 6.01667, 44.7);
+INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`) VALUES
 (1916, '05', 'Rosans', '05150', 5.46667, 44.3833),
 (1917, '05', 'Valserres', '05130', 6.13333, 44.4833),
 (1918, '05', 'Rochebrune', '05190', 6.18333, 44.4667),
@@ -1963,8 +2175,7 @@ INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`
 (1920, '05', 'Saint-Disdier', '05250', 5.89723, 44.7348),
 (1921, '05', 'Ribiers', '05300', 5.86667, 44.2333),
 (1922, '05', 'Chanousse', '05700', 5.65, 44.35),
-(1923, '05', 'Buissard', '05500', 6.13333, 44.65);
-INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`) VALUES
+(1923, '05', 'Buissard', '05500', 6.13333, 44.65),
 (1924, '05', 'Villar-d''Arêne', '05480', 6.33711, 45.0423),
 (1925, '05', 'Ancelle', '05260', 6.2, 44.6333),
 (1926, '05', 'Briançon', '05100', 6.65, 44.9),
@@ -2902,7 +3113,8 @@ INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`
 (2858, '08', 'Yvernaumont', '08430', 4.65, 49.6667),
 (2859, '08', 'Louvergny', '08390', 4.73333, 49.55),
 (2860, '08', 'Stonne', '08390', 4.91667, 49.55),
-(2861, '08', 'Hauteville', '08300', 4.30028, 49.5839),
+(2861, '08', 'Hauteville', '08300', 4.30028, 49.5839);
+INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`) VALUES
 (2862, '08', 'Apremont', '08250', 5, 49.2667),
 (2863, '08', 'Cauroy', '08310', 4.46667, 49.35),
 (2864, '08', 'Bossus-lès-Rumigny', '08290', 4.25, 49.8333),
@@ -2914,8 +3126,7 @@ INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`
 (2870, '08', 'Sault-Saint-Remy', '08190', 4.16667, 49.4333),
 (2871, '08', 'Sainte-Vaubourg', '08130', 4.6, 49.4667),
 (2872, '08', 'La Neuville-lès-Wasigny', '08270', 4.36667, 49.6333),
-(2873, '08', 'Gué-d''Hossus', '08230', 4.53333, 49.95);
-INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`) VALUES
+(2873, '08', 'Gué-d''Hossus', '08230', 4.53333, 49.95),
 (2874, '08', 'Inaumont', '08300', 4.31667, 49.5667),
 (2875, '08', 'La Berlière', '08240', 4.91667, 49.5333),
 (2876, '08', 'Tarzy', '08380', 4.3, 49.8667),
@@ -3852,7 +4063,8 @@ INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`
 (3807, '11', 'Massac', '11330', 2.58333, 42.9167),
 (3808, '11', 'Espezel', '11340', 2.01667, 42.8167),
 (3809, '11', 'Galinagues', '11140', 2.05, 42.8167),
-(3810, '11', 'Villerouge-Termenès', '11330', 2.63333, 43),
+(3810, '11', 'Villerouge-Termenès', '11330', 2.63333, 43);
+INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`) VALUES
 (3811, '11', 'Preixan', '11250', 2.3, 43.15),
 (3812, '11', 'Argens-Minervois', '11200', 2.76556, 43.2423),
 (3813, '11', 'Fournes-Cabardès', '11600', 2.4, 43.35),
@@ -3867,8 +4079,7 @@ INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`
 (3822, '11', 'Serres', '11190', 2.31667, 42.95),
 (3823, '11', 'Lignairolles', '11240', 1.98333, 43.1),
 (3824, '11', 'Ventenac-en-Minervois', '11120', 2.85945, 43.2487),
-(3825, '11', 'Rennes-les-Bains', '11190', 2.31667, 42.9167);
-INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`) VALUES
+(3825, '11', 'Rennes-les-Bains', '11190', 2.31667, 42.9167),
 (3826, '11', 'Villegly', '11600', 2.45, 43.2833),
 (3827, '11', 'Azille', '11700', 2.66667, 43.2833),
 (3828, '11', 'Montgaillard', '11330', 2.63333, 42.9167),
@@ -4779,7 +4990,8 @@ INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`
 (4733, '14', 'Litteau', '14490', -0.9, 49.15),
 (4734, '14', 'Le Theil-en-Auge', '14130', 0.25, 49.35),
 (4735, '14', 'Le Theil-Bocage', '14410', -0.715833, 48.8812),
-(4736, '14', 'Saint-Aubin-sur-Mer', '14750', -0.4, 49.3333),
+(4736, '14', 'Saint-Aubin-sur-Mer', '14750', -0.4, 49.3333);
+INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`) VALUES
 (4737, '14', 'Bissières', '14370', -0.083333, 49.1167),
 (4738, '14', 'Crépon', '14480', -0.55, 49.3167),
 (4739, '14', 'Planquery', '14490', -0.833333, 49.15),
@@ -4799,8 +5011,7 @@ INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`
 (4753, '14', 'La Lande-sur-Drôme', '14240', -0.866667, 49.0667),
 (4754, '14', 'Ouilly-le-Tesson', '14190', -0.216667, 48.9833),
 (4755, '14', 'Fresney-le-Puceux', '14680', -0.366667, 49.0667),
-(4756, '14', 'Cauvicourt', '14190', -0.25, 49.05);
-INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`) VALUES
+(4756, '14', 'Cauvicourt', '14190', -0.25, 49.05),
 (4757, '14', 'Trois-Monts', '14210', -0.483333, 49.05),
 (4758, '14', 'Mondrainville', '14210', -0.516667, 49.1333),
 (4759, '14', 'Cesny-Bois-Halbout', '14220', -0.4, 48.9833),
@@ -5696,7 +5907,8 @@ INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`
 (5649, '16', 'Saint-Laurent-de-Belzagot', '16190', 0.116667, 45.3833),
 (5650, '16', 'Saint-Christophe', '16420', 0.85, 46.0031),
 (5651, '16', 'Villejoubert', '16560', 0.183333, 45.8),
-(5652, '16', 'Roussines', '16310', 0.616667, 45.7167),
+(5652, '16', 'Roussines', '16310', 0.616667, 45.7167);
+INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`) VALUES
 (5653, '16', 'Taizé-Aizie', '16700', 0.233333, 46.05),
 (5654, '16', 'Cherves-Richemont', '16370', -0.353056, 45.7434),
 (5655, '16', 'Agris', '16110', 0.333333, 45.7833),
@@ -5720,8 +5932,7 @@ INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`
 (5673, '16', 'La Tâche', '16260', 0.35, 45.8833),
 (5674, '16', 'Oriolles', '16480', -0.116667, 45.35),
 (5675, '16', 'Orival', '16210', 0.066667, 45.2833),
-(5676, '16', 'Chassenon', '16150', 0.766667, 45.85);
-INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`) VALUES
+(5676, '16', 'Chassenon', '16150', 0.766667, 45.85),
 (5677, '16', 'Saint-Genis-d''Hiersac', '16570', 0.033333, 45.75),
 (5678, '16', 'Vieux-Ruffec', '16350', 0.383333, 46.0167),
 (5679, '16', 'Lussac', '16450', 0.463333, 45.8609),
@@ -6622,7 +6833,8 @@ INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`
 (6574, '18', 'Saint-Satur', '18300', 2.85, 47.3333),
 (6575, '18', 'Loye-sur-Arnon', '18170', 2.38333, 46.65),
 (6576, '18', 'Le Châtelet', '18170', 2.28333, 46.6333),
-(6577, '18', 'Clémont', '18410', 2.3, 47.5667),
+(6577, '18', 'Clémont', '18410', 2.3, 47.5667);
+INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`) VALUES
 (6578, '18', 'Jussy-Champagne', '18130', 2.65, 46.9833),
 (6579, '18', 'Boulleret', '18240', 2.86667, 47.4167),
 (6580, '18', 'Saint-Christophe-le-Chaudry', '18270', 2.36667, 46.5833),
@@ -6648,8 +6860,7 @@ INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`
 (6600, '18', 'Vallenay', '18190', 2.38333, 46.7833),
 (6601, '18', 'Ménétréol-sur-Sauldre', '18700', 2.31667, 47.45),
 (6602, '18', 'Saint-Vitte', '18360', 2.53333, 46.5333),
-(6603, '18', 'Couargues', '18300', 2.91667, 47.3);
-INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`) VALUES
+(6603, '18', 'Couargues', '18300', 2.91667, 47.3),
 (6604, '18', 'Herry', '18140', 2.95, 47.2167),
 (6605, '18', 'Neuvy-sur-Barangeon', '18330', 2.25, 47.3167),
 (6606, '18', 'Massay', '18120', 2, 47.15),
@@ -7554,7 +7765,8 @@ INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`
 (7505, '21', 'Magnien', '21230', 4.43333, 47.1),
 (7506, '21', 'Magny-lès-Villers', '21700', 4.88333, 47.1),
 (7507, '21', 'Saint-Usage', '21170', 5.26667, 47.1),
-(7508, '21', 'Veilly', '21360', 4.6, 47.1167),
+(7508, '21', 'Veilly', '21360', 4.6, 47.1167);
+INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`) VALUES
 (7509, '21', 'Villaines-en-Duesmois', '21450', 4.5, 47.6833),
 (7510, '21', 'Fontaine-Française', '21610', 5.36667, 47.5167),
 (7511, '21', 'Velogny', '21350', 4.46667, 47.4),
@@ -7585,8 +7797,7 @@ INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`
 (7536, '21', 'Lanthes', '21250', 5.2, 47),
 (7537, '21', 'Source-Seine', '21690', 4.68333, 47.4833),
 (7538, '21', 'Chaugey', '21290', 4.95, 47.75),
-(7539, '21', 'Marigny-lès-Reullée', '21200', 4.96667, 47);
-INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`) VALUES
+(7539, '21', 'Marigny-lès-Reullée', '21200', 4.96667, 47),
 (7540, '21', 'Chivres', '21820', 5.09584, 46.9764),
 (7541, '21', 'Chevannes', '21220', 4.84806, 47.1584),
 (7542, '21', 'Leuglay', '21290', 4.8, 47.8167),
@@ -8482,7 +8693,8 @@ INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`
 (8432, '24', 'Vézac', '24220', 1.18333, 44.8333),
 (8433, '24', 'Saint-Médard-d''Excideuil', '24160', 1.07056, 45.3417),
 (8434, '24', 'Sainte-Orse', '24210', 1.08333, 45.2),
-(8435, '24', 'Villac', '24120', 1.25, 45.1833),
+(8435, '24', 'Villac', '24120', 1.25, 45.1833);
+INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`) VALUES
 (8436, '24', 'Saint-Martin-le-Pin', '24300', 0.616667, 45.55),
 (8437, '24', 'Bardou', '24560', 0.683333, 44.7333),
 (8438, '24', 'Saint-André-d''Allas', '24200', 1.18333, 44.8833),
@@ -8517,8 +8729,7 @@ INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`
 (8467, '24', 'Cunèges', '24240', 0.366667, 44.7833),
 (8468, '24', 'Saint-Pardoux-la-Rivière', '24470', 0.75, 45.5),
 (8469, '24', 'Saint-Amand-de-Belvès', '24170', 1.03333, 44.7667),
-(8470, '24', 'Église-Neuve-d''Issac', '24400', 0.433333, 44.9833);
-INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`) VALUES
+(8470, '24', 'Église-Neuve-d''Issac', '24400', 0.433333, 44.9833),
 (8471, '24', 'Campsegret', '24140', 0.566667, 44.9333),
 (8472, '24', 'Bourg-du-Bost', '24600', 0.25, 45.2667),
 (8473, '24', 'Port-Sainte-Foy-et-Ponchapt', '33220', 0.210278, 44.8437),
@@ -9411,7 +9622,8 @@ INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`
 (9360, '25', 'Audeux', '25170', 5.88333, 47.2667),
 (9361, '25', 'Granges-Narboz', '25300', 6.31667, 46.8833),
 (9362, '25', 'Froidevaux', '25190', 6.7, 47.3),
-(9363, '25', 'Chassagne-Saint-Denis', '25290', 6.11667, 47.0833),
+(9363, '25', 'Chassagne-Saint-Denis', '25290', 6.11667, 47.0833);
+INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`) VALUES
 (9364, '25', 'Charnay', '25440', 5.95, 47.1333),
 (9365, '25', 'Montandon', '25190', 6.83333, 47.3),
 (9366, '25', 'Amancey', '25330', 6.08333, 47.0333),
@@ -9452,8 +9664,7 @@ INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`
 (9401, '25', 'Grandfontaine-sur-Creuse', '25510', 6.45, 47.2),
 (9402, '25', 'La Chaux', '25650', 6.43333, 47.0167),
 (9403, '25', 'Burnevillers', '25470', 7, 47.3167),
-(9404, '25', 'Bolandoz', '25330', 6.11667, 47.0167);
-INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`) VALUES
+(9404, '25', 'Bolandoz', '25330', 6.11667, 47.0167),
 (9405, '25', 'Courchapon', '25170', 5.75, 47.2667),
 (9406, '25', 'Villedieu', '25240', 6.24167, 46.725),
 (9407, '25', 'Maisons-du-Bois-Lièvremont', '25650', 6.42028, 46.9673),
@@ -10320,7 +10531,8 @@ INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`
 (10268, '27', 'La Harengère', '27370', 1, 49.2333),
 (10269, '27', 'Barville', '27230', 0.478056, 49.1573),
 (10270, '27', 'Écardenville-sur-Eure', '27490', 1.26667, 49.1),
-(10271, '27', 'La Haye-de-Routot', '27350', 0.733333, 49.4),
+(10271, '27', 'La Haye-de-Routot', '27350', 0.733333, 49.4);
+INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`) VALUES
 (10272, '27', 'Écardenville-la-Campagne', '27170', 0.85, 49.1167),
 (10273, '27', 'Bus-Saint-Rémy', '27630', 1.61667, 49.15),
 (10274, '27', 'Douains', '27120', 1.43333, 49.0333),
@@ -10362,8 +10574,7 @@ INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`
 (10310, '27', 'Berthouville', '27800', 0.633333, 49.1833),
 (10311, '27', 'Cesseville', '27110', 0.983333, 49.1833),
 (10312, '27', 'Pressagny-l''Orgueilleux', '27510', 1.44583, 49.1323),
-(10313, '27', 'Le Tilleul-Othon', '27170', 0.783333, 49.1167);
-INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`) VALUES
+(10313, '27', 'Le Tilleul-Othon', '27170', 0.783333, 49.1167),
 (10314, '27', 'Saint-Quentin-des-Isles', '27270', 0.583333, 49.05),
 (10315, '27', 'Valletot', '27350', 0.616667, 49.3667),
 (10316, '27', 'Gisay-la-Coudre', '27330', 0.626111, 48.9503),
@@ -11228,7 +11439,8 @@ INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`
 (11175, '30', 'Sardan', '30260', 4.05, 43.8667),
 (11176, '30', 'Roquemaure', '30150', 4.78333, 44.05),
 (11177, '30', 'Lussan', '30580', 4.36667, 44.15),
-(11178, '30', 'Aramon', '30390', 4.68333, 43.8833),
+(11178, '30', 'Aramon', '30390', 4.68333, 43.8833);
+INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`) VALUES
 (11179, '30', 'Laval-Saint-Roman', '30760', 4.505, 44.2987),
 (11180, '30', 'Saint-Dionisy', '30980', 4.23333, 43.8),
 (11181, '30', 'Connaux', '30330', 4.6, 44.0833),
@@ -11277,8 +11489,7 @@ INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`
 (11224, '30', 'Saint-Jean-de-Valériscle', '30960', 4.13333, 44.2333),
 (11225, '30', 'Saint-Nazaire', '30200', 4.62473, 44.1978),
 (11226, '30', 'Saint-Denis', '30500', 4.25, 44.25),
-(11227, '30', 'Manduel', '30129', 4.46667, 43.8167);
-INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`) VALUES
+(11227, '30', 'Manduel', '30129', 4.46667, 43.8167),
 (11228, '30', 'Salles-du-Gardon', '30110', 4.03333, 44.2),
 (11229, '30', 'Combas', '30250', 4.11667, 43.85),
 (11230, '30', 'Saint-Bresson', '30440', 3.65, 43.95),
@@ -12152,7 +12363,8 @@ INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`
 (12098, '31', 'Casties-Labrande', '31430', 1, 43.3333),
 (12099, '31', 'Aignes', '31550', 1.6, 43.3167),
 (12100, '31', 'Grazac', '31190', 1.45528, 43.3117),
-(12101, '31', 'Sana', '31220', 1.01667, 43.2333),
+(12101, '31', 'Sana', '31220', 1.01667, 43.2333);
+INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`) VALUES
 (12102, '31', 'Saint-Léon', '31560', 1.56667, 43.4),
 (12103, '31', 'Issus', '31450', 1.5, 43.4167),
 (12104, '32', 'Mont-d''Astarac', '32140', 0.566667, 43.3333),
@@ -12207,8 +12419,7 @@ INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`
 (12153, '32', 'Saint-Soulan', '32220', 0.85, 43.5),
 (12154, '32', 'Loubédat', '32110', 0.016667, 43.7333),
 (12155, '32', 'Ardizas', '32430', 1, 43.7167),
-(12156, '32', 'Armous-et-Cau', '32230', 0.166667, 43.5667);
-INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`) VALUES
+(12156, '32', 'Armous-et-Cau', '32230', 0.166667, 43.5667),
 (12157, '32', 'Lagarde-Hachan', '32300', 0.5, 43.4167),
 (12158, '32', 'Labéjan', '32300', 0.5, 43.5333),
 (12159, '32', 'Pouy-Loubrin', '32260', 0.618056, 43.4662),
@@ -13065,7 +13276,8 @@ INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`
 (13010, '33', 'Cazalis', '33113', -0.38, 44.342),
 (13011, '33', 'Saint-Germain-de-Grave', '33490', -0.221389, 44.6256),
 (13012, '33', 'Cabara', '33420', -0.166667, 44.8167),
-(13013, '33', 'Bassanne', '33190', -0.1, 44.55),
+(13013, '33', 'Bassanne', '33190', -0.1, 44.55);
+INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`) VALUES
 (13014, '33', 'Castets-en-Dorthe', '33210', -0.15, 44.5667),
 (13015, '33', 'Sendets', '33690', -0.0886111, 44.4228),
 (13016, '33', 'Bourideys', '33113', -0.45, 44.3833),
@@ -13120,8 +13332,7 @@ INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`
 (13065, '33', 'Saint-Aubin-de-Branne', '33420', -0.166667, 44.8),
 (13066, '33', 'Courpiac', '33760', -0.183333, 44.75),
 (13067, '33', 'Le Puy', '33580', 0.0730556, 44.6612),
-(13068, '33', 'Saint-Martin-de-Sescas', '33490', -0.166667, 44.5667);
-INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`) VALUES
+(13068, '33', 'Saint-Martin-de-Sescas', '33490', -0.166667, 44.5667),
 (13069, '33', 'Salles', '33770', -0.869444, 44.552),
 (13070, '33', 'Lados', '33124', -0.15, 44.4667),
 (13071, '33', 'Auros', '33124', -0.15, 44.5),
@@ -13980,7 +14191,8 @@ INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`
 (13924, '36', 'Buxeuil', '36150', 1.68333, 47.1333),
 (13925, '36', 'Sainte-Fauste', '36100', 1.86667, 46.85),
 (13926, '36', 'Arthon', '36330', 1.7, 46.6833),
-(13927, '36', 'Saint-Pierre-de-Jards', '36260', 1.98333, 47.1),
+(13927, '36', 'Saint-Pierre-de-Jards', '36260', 1.98333, 47.1);
+INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`) VALUES
 (13928, '36', 'Argy', '36500', 1.43333, 46.9333),
 (13929, '36', 'Mouhers', '36340', 1.78333, 46.5667),
 (13930, '36', 'Saint-Août', '36120', 1.96667, 46.7167),
@@ -14044,8 +14256,7 @@ INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`
 (13988, '36', 'La Châtre', '36400', 1.98333, 46.5833),
 (13989, '36', 'Velles', '36330', 1.65, 46.6833),
 (13990, '36', 'Lacs', '36400', 2.01667, 46.5833),
-(13991, '36', 'Le Blanc', '36300', 1.06667, 46.6333);
-INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`) VALUES
+(13991, '36', 'Le Blanc', '36300', 1.06667, 46.6333),
 (13992, '36', 'Sassierges-Saint-Germain', '36120', 1.9, 46.7667),
 (13993, '36', 'Chazelet', '36170', 1.45, 46.5167),
 (13994, '36', 'Chavin', '36200', 1.61667, 46.5667),
@@ -14891,7 +15102,8 @@ INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`
 (14834, '38', 'Rochetoirin', '38110', 5.41667, 45.5833),
 (14835, '38', 'Fitilieu', '38490', 5.56667, 45.55),
 (14836, '38', 'Chasse-sur-Rhône', '38670', 4.81667, 45.5667),
-(14837, '38', 'Arzay', '38260', 5.16667, 45.4333),
+(14837, '38', 'Arzay', '38260', 5.16667, 45.4333);
+INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`) VALUES
 (14838, '38', 'Saint-Laurent-du-Pont', '38380', 5.73333, 45.3833),
 (14839, '38', 'Saint-Julien-de-Raz', '38134', 5.66167, 45.3498),
 (14840, '38', 'La Frette', '38260', 5.35, 45.3833),
@@ -14962,8 +15174,7 @@ INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`
 (14905, '39', 'Ougney', '39350', 5.66667, 47.2333),
 (14906, '39', 'Pretin', '39110', 5.83333, 46.9333),
 (14907, '39', 'Grozon', '39800', 5.7, 46.8833),
-(14908, '39', 'Mont-sous-Vaudrey', '39380', 5.6, 46.9667);
-INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`) VALUES
+(14908, '39', 'Mont-sous-Vaudrey', '39380', 5.6, 46.9667),
 (14909, '39', 'Saint-Hymetière', '39240', 5.55, 46.35),
 (14910, '39', 'Montmirey-la-Ville', '39290', 5.51667, 47.2167),
 (14911, '39', 'Chamblay', '39380', 5.71667, 47),
@@ -15838,7 +16049,8 @@ INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`
 (15780, '41', 'La Ville-aux-Clercs', '41160', 1.08333, 47.9167),
 (15781, '41', 'Prénouvellon', '41240', 1.53333, 47.9667),
 (15782, '41', 'Artins', '41800', 0.733333, 47.75),
-(15783, '41', 'Coulanges', '41150', 1.21667, 47.55),
+(15783, '41', 'Coulanges', '41150', 1.21667, 47.55);
+INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`) VALUES
 (15784, '41', 'Fresnes', '41700', 1.41667, 47.4333),
 (15785, '41', 'Mondoubleau', '41170', 0.9, 47.9833),
 (15786, '41', 'Vallières-les-Grandes', '41400', 1.15, 47.4167),
@@ -15908,8 +16120,7 @@ INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`
 (15850, '41', 'Salbris', '41300', 2.05, 47.4259),
 (15851, '41', 'Châteauvieux', '41110', 1.38333, 47.2167),
 (15852, '41', 'Cour-Cheverny', '41700', 1.45, 47.5),
-(15853, '41', 'Montoire-sur-le-Loir', '41800', 0.866667, 47.75);
-INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`) VALUES
+(15853, '41', 'Montoire-sur-le-Loir', '41800', 0.866667, 47.75),
 (15854, '41', 'Villefranche-sur-Cher', '41200', 1.77, 47.2934),
 (15855, '41', 'Lestiou', '41500', 1.58333, 47.7333),
 (15856, '41', 'Pezou', '41100', 1.13333, 47.8667),
@@ -16747,7 +16958,8 @@ INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`
 (16688, '44', 'Grand-Auverné', '44520', -1.33333, 47.6),
 (16689, '44', 'Villepot', '44110', -1.28333, 47.7833),
 (16690, '44', 'Saint-Jean-de-Boiseau', '44640', -1.71667, 47.2),
-(16691, '44', 'Herbignac', '44410', -2.31667, 47.45),
+(16691, '44', 'Herbignac', '44410', -2.31667, 47.45);
+INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`) VALUES
 (16692, '44', 'Saint-Fiacre-sur-Maine', '44690', -1.41667, 47.15),
 (16693, '44', 'La Chapelle-Basse-Mer', '44450', -1.33333, 47.2667),
 (16694, '44', 'Préfailles', '44770', -2.21667, 47.1333),
@@ -16819,8 +17031,7 @@ INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`
 (16760, '44', 'Saint-Aignan-Grandlieu', '44860', 0.369445, 47.1239),
 (16761, '44', 'Mésanger', '44522', -1.23333, 47.4333),
 (16762, '44', 'Batz-sur-Mer', '44740', -2.48333, 47.2833),
-(16763, '44', 'Moisdon-la-Rivière', '44520', -1.36667, 47.6167);
-INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`) VALUES
+(16763, '44', 'Moisdon-la-Rivière', '44520', -1.36667, 47.6167),
 (16764, '44', 'Cheix-en-Retz', '44640', -1.81667, 47.1833),
 (16765, '44', 'Le Croisic', '44490', -2.51667, 47.3),
 (16766, '44', 'Rezé', '44400', -1.56667, 47.2),
@@ -17666,7 +17877,8 @@ INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`
 (17606, '47', 'Savignac-de-Duras', '47120', 0.2, 44.7),
 (17607, '47', 'Bourran', '47320', 0.4, 44.3333),
 (17608, '47', 'Gavaudun', '47150', 0.9, 44.5667),
-(17609, '47', 'Monviel', '47290', 0.533333, 44.5667),
+(17609, '47', 'Monviel', '47290', 0.533333, 44.5667);
+INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`) VALUES
 (17610, '47', 'Lamontjoie', '47310', 0.533333, 44.0667),
 (17611, '47', 'Tombebœuf', '47380', 0.45, 44.5),
 (17612, '47', 'Sérignac-Péboudou', '47410', 0.55, 44.6),
@@ -17743,8 +17955,7 @@ INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`
 (17683, '47', 'Poussignac', '47700', 0.05, 44.35),
 (17684, '47', 'Anzex', '47700', 0.166667, 44.2833),
 (17685, '47', 'Fourques-sur-Garonne', '47200', 0.183333, 44.45),
-(17686, '47', 'Frégimont', '47360', 0.466667, 44.2833);
-INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`) VALUES
+(17686, '47', 'Frégimont', '47360', 0.466667, 44.2833),
 (17687, '47', 'Le Mas-d''Agenais', '47430', 0.216667, 44.4),
 (17688, '47', 'Saint-Colomb-de-Lauzun', '47410', 0.466667, 44.6),
 (17689, '47', 'Lévignac-de-Guyenne', '47120', 0.2, 44.6333),
@@ -18552,7 +18763,8 @@ INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`
 (18491, '50', 'Flottemanville-Hague', '50690', -1.71667, 49.6167),
 (18492, '50', 'Tollevast', '50470', -1.63333, 49.5667),
 (18493, '50', 'Le Mesnil-Ozenne', '50220', -1.23333, 48.6667),
-(18494, '50', 'Sideville', '50690', -1.68333, 49.5833),
+(18494, '50', 'Sideville', '50690', -1.68333, 49.5833);
+INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`) VALUES
 (18495, '50', 'Saint-Pierre-Langers', '50530', -1.5, 48.7833),
 (18496, '50', 'Bricqueville-sur-Mer', '50290', -1.51667, 48.9167),
 (18497, '50', 'Champcervon', '50320', -1.4, 48.7833),
@@ -18631,8 +18843,7 @@ INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`
 (18570, '50', 'Saint-Samson-de-Bonfossé', '50750', -1.13333, 49.05),
 (18571, '50', 'Le Valdécie', '50260', -1.65, 49.4167),
 (18572, '50', 'Le Mesnil-Garnier', '50450', -1.3, 48.8667),
-(18573, '50', 'Donville-les-Bains', '50350', -1.56667, 48.85);
-INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`) VALUES
+(18573, '50', 'Donville-les-Bains', '50350', -1.56667, 48.85),
 (18574, '50', 'Cerisy-la-Forêt', '50680', -0.933333, 49.2),
 (18575, '50', 'Baudre', '50000', -1.06667, 49.0833),
 (18576, '50', 'Saint-André-de-Bohon', '50500', -1.25, 49.2333),
@@ -19455,7 +19666,8 @@ INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`
 (19393, '51', 'Châlons-sur-Vesle', '51140', 3.91667, 49.2833),
 (19394, '51', 'Blacy', '51300', 4.55, 48.7333),
 (19395, '51', 'Juvigny', '51150', 4.26667, 49.0167),
-(19396, '51', 'Heutrégiville', '51110', 4.26195, 49.3253),
+(19396, '51', 'Heutrégiville', '51110', 4.26195, 49.3253);
+INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`) VALUES
 (19397, '51', 'Angluzelles-et-Courcelles', '51230', 3.88333, 48.6667),
 (19398, '51', 'Oger', '51190', 4.01667, 48.95),
 (19399, '51', 'Coole', '51320', 4.4, 48.7333),
@@ -19542,8 +19754,7 @@ INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`
 (19480, '51', 'Verzenay', '51360', 4.15, 49.1667),
 (19481, '51', 'Euvy', '51230', 4.03333, 48.7167),
 (19482, '51', 'Chaintrix-Bierges', '51130', 4.1, 48.9),
-(19483, '51', 'Somme-Yèvre', '51330', 4.76667, 48.95);
-INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`) VALUES
+(19483, '51', 'Somme-Yèvre', '51330', 4.76667, 48.95),
 (19484, '51', 'Villers-aux-Nœuds', '51500', 3.98333, 49.1833),
 (19485, '51', 'Le Baizil', '51270', 3.8, 48.9667),
 (19486, '51', 'Péas', '51120', 3.78333, 48.75),
@@ -20357,7 +20568,8 @@ INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`
 (20294, '54', 'Millery', '54670', 6.13333, 48.8167),
 (20295, '54', 'Norroy-le-Sec', '54150', 5.81667, 49.2833),
 (20296, '54', 'Gerbéviller', '54830', 6.51667, 48.5),
-(20297, '54', 'Fillières', '54560', 5.83333, 49.4),
+(20297, '54', 'Fillières', '54560', 5.83333, 49.4);
+INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`) VALUES
 (20298, '54', 'Haigneville', '54290', 6.35, 48.4833),
 (20299, '54', 'Rehainviller', '54300', 6.46667, 48.5667),
 (20300, '54', 'Jœuf', '54240', 6.01667, 49.2333),
@@ -20450,8 +20662,7 @@ INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`
 (20387, '54', 'Pulnoy', '54420', 6.26667, 48.7),
 (20388, '54', 'Anthelupt', '54110', 6.41667, 48.6167),
 (20389, '54', 'Pulney', '54115', 6.03333, 48.4),
-(20390, '54', 'Ancerviller', '54450', 6.83333, 48.5333);
-INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`) VALUES
+(20390, '54', 'Ancerviller', '54450', 6.83333, 48.5333),
 (20391, '54', 'Diarville', '54930', 6.13333, 48.4),
 (20392, '54', 'Gondreville', '54840', 5.96667, 48.7),
 (20393, '54', 'Houdemont', '54180', 6.18333, 48.65),
@@ -21278,7 +21489,8 @@ INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`
 (21214, '55', 'Bislée', '55300', 5.5, 48.8667),
 (21215, '55', 'Olizy-sur-Chiers', '55700', 5.21667, 49.55),
 (21216, '55', 'Quincy-Landzécourt', '55600', 5.28333, 49.5),
-(21217, '55', 'Herbeuville', '55210', 5.63333, 49.05),
+(21217, '55', 'Herbeuville', '55210', 5.63333, 49.05);
+INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`) VALUES
 (21218, '55', 'Charpentry', '55270', 5.03333, 49.2667),
 (21219, '55', 'Fromezey', '55400', 5.58333, 49.2167),
 (21220, '55', 'Vittarville', '55150', 5.41667, 49.3833),
@@ -21372,8 +21584,7 @@ INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`
 (21308, '55', 'Ronvaux', '55160', 5.55, 49.1333),
 (21309, '55', 'Lavoye', '55120', 5.13333, 49.0333),
 (21310, '55', 'Paroches', '55300', 5.5, 48.9),
-(21311, '55', 'Saint-Remy-la-Calonne', '55160', 5.6, 49.05);
-INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`) VALUES
+(21311, '55', 'Saint-Remy-la-Calonne', '55160', 5.6, 49.05),
 (21312, '55', 'Islettes', '55120', 5, 49.1),
 (21313, '55', 'Nouillonpont', '55230', 5.63333, 49.35),
 (21314, '55', 'Bouquemont', '55300', 5.45, 48.9833),
@@ -22218,7 +22429,8 @@ INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`
 (22153, '57', 'Bettborn', '57930', 7.01667, 48.8),
 (22154, '57', 'Erching', '57136', 7.26667, 49.1167),
 (22155, '57', 'Lubécourt', '57170', 6.51667, 48.85),
-(22156, '57', 'Freybouse', '57660', 6.76667, 49),
+(22156, '57', 'Freybouse', '57660', 6.76667, 49);
+INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`) VALUES
 (22157, '57', 'Loupershouse', '57510', 6.91667, 49.0833),
 (22158, '57', 'Many', '57380', 6.51667, 49),
 (22159, '57', 'Moussey', '57770', 6.78251, 48.6737),
@@ -22321,8 +22533,7 @@ INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`
 (22256, '57', 'Velving', '57220', 6.53333, 49.2333),
 (22257, '57', 'Bertrange', '57310', 6.18333, 49.3),
 (22258, '57', 'Chambrey', '57170', 6.46667, 48.7833),
-(22259, '57', 'Landroff', '57340', 6.61667, 48.9667);
-INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`) VALUES
+(22259, '57', 'Landroff', '57340', 6.61667, 48.9667),
 (22260, '57', 'Fresnes-en-Saulnois', '57170', 6.43333, 48.8333),
 (22261, '57', 'Mainvillers', '57380', 6.53333, 49.0167),
 (22262, '57', 'Neufgrange', '57910', 7.06667, 49.0667),
@@ -23161,7 +23372,8 @@ INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`
 (23095, '59', 'Assevent', '59600', 4.01667, 50.2833),
 (23096, '59', 'Brouckerque', '59630', 2.28333, 50.95),
 (23097, '59', 'Villers-Pol', '59530', 3.61667, 50.2833),
-(23098, '59', 'Ochtezeele', '59670', 2.4, 50.8167),
+(23098, '59', 'Ochtezeele', '59670', 2.4, 50.8167);
+INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`) VALUES
 (23099, '59', 'La Sentinelle', '59174', 3.48333, 50.35),
 (23100, '59', 'Dunkerque', '59140-59240-59430-59640-59279', 2.36667, 51.05),
 (23101, '59', 'Saint-Martin-sur-Écaillon', '59213', 3.53333, 50.25),
@@ -23266,8 +23478,7 @@ INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`
 (23200, '59', 'Saint-Souplet', '59360', 3.53333, 50.05),
 (23201, '59', 'Cambrai', '59400', 3.23333, 50.1667),
 (23202, '59', 'Sequedin', '59320', 2.98333, 50.6167),
-(23203, '59', 'Floyon', '59219', 3.9, 50.0333);
-INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`) VALUES
+(23203, '59', 'Floyon', '59219', 3.9, 50.0333),
 (23204, '59', 'Marcq-en-Barœul', '59700', 3.08333, 50.6667),
 (23205, '59', 'Écaillon', '59176', 3.21667, 50.35),
 (23206, '59', 'Haverskerque', '62350', 2.53333, 50.6333),
@@ -24091,7 +24302,8 @@ INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`
 (24024, '60', 'Pisseleu', '60860', 2.06028, 49.5389),
 (24025, '60', 'Attichy', '60350', 3.05, 49.4167),
 (24026, '60', 'Martincourt', '60112', 1.9, 49.5333),
-(24027, '60', 'Clermont', '60600', 2.4, 49.3833),
+(24027, '60', 'Clermont', '60600', 2.4, 49.3833);
+INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`) VALUES
 (24028, '60', 'Milly-sur-Thérain', '60112', 2, 49.5),
 (24029, '60', 'Saint-Samson-la-Poterie', '60220', 1.74195, 49.5939),
 (24030, '60', 'Ver-sur-Launette', '60950', 2.68333, 49.1),
@@ -24194,8 +24406,7 @@ INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`
 (24127, '61', 'La Poterie-au-Perche', '61190', 0.716667, 48.6333),
 (24128, '61', 'Saint-Lambert-sur-Dive', '61160', 0.075, 48.82),
 (24129, '61', 'Caligny', '61100', -0.6, 48.8167),
-(24130, '61', 'Saint-Ouen-de-la-Cour', '61130', 0.583333, 48.4167);
-INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`) VALUES
+(24130, '61', 'Saint-Ouen-de-la-Cour', '61130', 0.583333, 48.4167),
 (24131, '61', 'Champs', '61190', 0.55, 48.5833),
 (24132, '61', 'Omméel', '61160', 0.15, 48.8),
 (24133, '61', 'Saint-André-de-Briouze', '61220', -0.3, 48.7333),
@@ -24994,7 +25205,8 @@ INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`
 (24926, '62', 'Nœux-les-Mines', '62290', 2.66667, 50.4833),
 (24927, '62', 'Boisleux-Saint-Marc', '62175', 2.8, 50.2167),
 (24928, '62', 'Oppy', '62580', 2.88333, 50.35),
-(24929, '62', 'Givenchy-en-Gohelle', '62580', 2.76667, 50.3833),
+(24929, '62', 'Givenchy-en-Gohelle', '62580', 2.76667, 50.3833);
+INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`) VALUES
 (24930, '62', 'Hautecloque', '62130', 2.3, 50.3333),
 (24931, '62', 'Alette', '62650', 1.81667, 50.5167),
 (24932, '62', 'Izel-lès-Hameau', '62690', 2.53333, 50.3167),
@@ -25109,8 +25321,7 @@ INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`
 (25041, '62', 'Avesnes-le-Comte', '62810', 2.53333, 50.2833),
 (25042, '62', 'Montcavrel', '62170', 1.8, 50.5167),
 (25043, '62', 'Marest', '62550', 2.41667, 50.4667),
-(25044, '62', 'Frencq', '62630', 1.7, 50.5667);
-INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`) VALUES
+(25044, '62', 'Frencq', '62630', 1.7, 50.5667),
 (25045, '62', 'Hesdigneul-lès-Béthune', '62196', 2.6, 50.5),
 (25046, '62', 'Blangy-sur-Ternoise', '62770', 2.16667, 50.4167),
 (25047, '62', 'Lillers', '62190', 2.48333, 50.5667),
@@ -25923,7 +26134,8 @@ INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`
 (25854, '63', 'Saint-Babel', '63500', 3.3, 45.6),
 (25855, '63', 'Aigueperse', '63260', 3.2, 46.0167),
 (25856, '63', 'Aix-la-Fayette', '63980', 3.53333, 45.5167),
-(25857, '63', 'Saint-Quentin-sur-Sauxillanges', '63490', 3.4, 45.55),
+(25857, '63', 'Saint-Quentin-sur-Sauxillanges', '63490', 3.4, 45.55);
+INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`) VALUES
 (25858, '63', 'Grandval', '63890', 3.66667, 45.6),
 (25859, '63', 'Chidrac', '63320', 3.16667, 45.55),
 (25860, '63', 'Davayat', '63200', 3.11667, 45.95),
@@ -26037,8 +26249,7 @@ INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`
 (25968, '64', 'Riupeyrous', '64160', -0.233333, 43.4),
 (25969, '64', 'Ascarat', '64220', -1.25, 43.1667),
 (25970, '64', 'Mourenx', '64150', -0.6, 43.3833),
-(25971, '64', 'Larreule', '64410', -0.466667, 43.4833);
-INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`) VALUES
+(25971, '64', 'Larreule', '64410', -0.466667, 43.4833),
 (25972, '64', 'Bastanès', '64190', -0.766667, 43.35),
 (25973, '64', 'Casteide-Candau', '64370', -0.566667, 43.5167),
 (25974, '64', 'Castéra-Loubix', '64460', -0.033333, 43.4),
@@ -26862,7 +27073,8 @@ INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`
 (26792, '65', 'Ouzous', '65400', -0.1, 43.0333),
 (26793, '65', 'Aubarède', '65350', 0.25, 43.2667),
 (26794, '65', 'Izaux', '65250', 0.383333, 43.0667),
-(26795, '65', 'Siradan', '65370', 0.616667, 42.9667),
+(26795, '65', 'Siradan', '65370', 0.616667, 42.9667);
+INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`) VALUES
 (26796, '65', 'Barbachen', '65140', 0.133333, 43.4333),
 (26797, '65', 'Campan', '65710', 0.166667, 43.0167),
 (26798, '65', 'Bégole', '65190', 0.333333, 43.15),
@@ -26987,8 +27199,7 @@ INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`
 (26917, '65', 'Puntous', '65230', 0.45, 43.3),
 (26918, '65', 'Saint-Pé-de-Bigorre', '65270', -0.15, 43.1167),
 (26919, '65', 'Lézignan', '65100', -0.00472222, 43.1),
-(26920, '65', 'Hibarette', '65380', 0.033333, 43.1667);
-INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`) VALUES
+(26920, '65', 'Hibarette', '65380', 0.033333, 43.1667),
 (26921, '65', 'Bazus-Neste', '65250', 0.383333, 43.0333),
 (26922, '65', 'Calavanté', '65190', 0.166667, 43.2),
 (26923, '66', 'Latour-de-France', '66720', 2.65, 42.7667),
@@ -27805,7 +28016,8 @@ INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`
 (27734, '68', 'Urbès', '68121', 6.95, 47.8833),
 (27735, '68', 'Gommersdorf', '68210', 7.13333, 47.6333),
 (27736, '68', 'Aspach-le-Haut', '68700', 7.13333, 47.7833),
-(27737, '68', 'Bettendorf', '68560', 7.28333, 47.5833),
+(27737, '68', 'Bettendorf', '68560', 7.28333, 47.5833);
+INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`) VALUES
 (27738, '68', 'Buethwiller', '68210', 7.15, 47.65),
 (27739, '68', 'Village-Neuf', '68128', 7.56667, 47.6),
 (27740, '68', 'Thannenkirch', '68590', 7.3, 48.2333),
@@ -27931,8 +28143,7 @@ INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`
 (27860, '68', 'Stetten', '68510', 7.41667, 47.6333),
 (27861, '68', 'Traubach-le-Bas', '68210', 7.1, 47.6667),
 (27862, '68', 'Ranspach-le-Haut', '68220', 7.41667, 47.5833),
-(27863, '68', 'Oltingue', '68480', 7.38333, 47.4833);
-INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`) VALUES
+(27863, '68', 'Oltingue', '68480', 7.38333, 47.4833),
 (27864, '68', 'Zaessingue', '68130', 7.36667, 47.6167),
 (27865, '68', 'Wolfgantzen', '68600', 7.51667, 48.0333),
 (27866, '68', 'Durlinsdorf', '68480', 7.25, 47.4833),
@@ -28726,7 +28937,8 @@ INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`
 (28654, '70', 'Polaincourt-et-Clairefontaine', '70210', 6.07001, 47.8839),
 (28655, '70', 'Châlonvillars', '70400', 6.78333, 47.6333),
 (28656, '70', 'Seveux', '70130', 5.75, 47.55),
-(28657, '70', 'Lavigney', '70120', 5.81667, 47.7167),
+(28657, '70', 'Lavigney', '70120', 5.81667, 47.7167);
+INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`) VALUES
 (28658, '70', 'Villers-sur-Port', '70170', 6.08333, 47.7167),
 (28659, '70', 'Cresancey', '70100', 5.65, 47.4),
 (28660, '70', 'Vellefaux', '70000', 6.13333, 47.55),
@@ -28852,8 +29064,7 @@ INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`
 (28780, '70', 'Chassey-lès-Montbozon', '70230', 6.33333, 47.5167),
 (28781, '70', 'Molay', '70120', 5.74112, 47.7323),
 (28782, '70', 'Malans', '70140', 5.59389, 47.2637),
-(28783, '70', 'Grandvelle-et-le-Perrenot', '70190', 5.99528, 47.5089);
-INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`) VALUES
+(28783, '70', 'Grandvelle-et-le-Perrenot', '70190', 5.99528, 47.5089),
 (28784, '70', 'Velesmes-Échevanne', '70100', 5.70139, 47.4198),
 (28785, '70', 'Varogne', '70240', 6.2, 47.7167),
 (28786, '70', 'Vellefrie', '70240', 6.21667, 47.7),
@@ -29636,7 +29847,8 @@ INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`
 (29563, '72', 'Sargé-lès-le-Mans', '72190', 0.233333, 48.0333),
 (29564, '72', 'Mareil-en-Champagne', '72540', -0.166667, 47.9833),
 (29565, '72', 'Beaufay', '72110', 0.366667, 48.15),
-(29566, '72', 'Nogent-le-Bernard', '72110', 0.483333, 48.2333),
+(29566, '72', 'Nogent-le-Bernard', '72110', 0.483333, 48.2333);
+INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`) VALUES
 (29567, '72', 'Saint-Gervais-de-Vic', '72120', 0.733333, 47.8833),
 (29568, '72', 'Lhomme', '72340', 0.55, 47.75),
 (29569, '72', 'Chantenay-Villedieu', '72430', -0.166667, 47.9167),
@@ -29763,8 +29975,7 @@ INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`
 (29690, '72', 'Laigné-en-Belin', '72220', 0.233333, 47.8833),
 (29691, '72', 'Marolles-les-Braults', '72260', 0.316667, 48.25),
 (29692, '72', 'Saint-Paterne', '72610', 0.116667, 48.4),
-(29693, '72', 'Château-du-Loir', '72500', 0.416667, 47.7);
-INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`) VALUES
+(29693, '72', 'Château-du-Loir', '72500', 0.416667, 47.7),
 (29694, '72', 'Saint-Jean-du-Bois', '72430', -0.033333, 47.8667),
 (29695, '72', 'Neuvillalais', '72240', -0.000833333, 48.15),
 (29696, '72', 'Champfleur', '72610', 0.133333, 48.3833),
@@ -30546,7 +30757,8 @@ INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`
 (30472, '76', 'Le Tilleul', '76790', 0.2, 49.6833),
 (30473, '76', 'Saint-Pierre-de-Varengeville', '76480', 0.933333, 49.5),
 (30474, '76', 'Pierrefiques', '76280', 0.233333, 49.6833),
-(30475, '76', 'Le Caule-Sainte-Beuve', '76390', 1.58333, 49.7667),
+(30475, '76', 'Le Caule-Sainte-Beuve', '76390', 1.58333, 49.7667);
+INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`) VALUES
 (30476, '76', 'Anglesqueville-la-Bras-Long', '76740', 0.782222, 49.7803),
 (30477, '76', 'Villequier', '76490', 0.666667, 49.5167),
 (30478, '76', 'Glicourt', '76630', 1.25, 49.9333),
@@ -30679,8 +30891,7 @@ INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`
 (30605, '76', 'Criquiers', '76390', 1.7, 49.6833),
 (30606, '76', 'Ouville-la-Rivière', '76860', 0.966667, 49.8667),
 (30607, '76', 'Harcanville', '76560', 0.716667, 49.7167),
-(30608, '76', 'Sahurs', '76113', 0.933333, 49.35);
-INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`) VALUES
+(30608, '76', 'Sahurs', '76113', 0.933333, 49.35),
 (30609, '76', 'Saint-Eustache-la-Forêt', '76210', 0.466667, 49.55),
 (30610, '76', 'Sainte-Marie-au-Bosc', '76280', 0.2, 49.6667),
 (30611, '76', 'Étretat', '76790', 0.2, 49.7),
@@ -31436,7 +31647,8 @@ INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`
 (31361, '77', 'Noyen-sur-Seine', '77114', 3.35, 48.45),
 (31362, '77', 'Jouarre', '77640', 3.13333, 48.9333),
 (31363, '77', 'Chelles', '77500', 2.6, 48.8833),
-(31364, '77', 'Saint-Mard', '77230', 2.7, 49.0333),
+(31364, '77', 'Saint-Mard', '77230', 2.7, 49.0333);
+INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`) VALUES
 (31365, '77', 'Crécy-la-Chapelle', '77580', 2.9075, 48.8589),
 (31366, '77', 'Torcy', '77200', 2.65, 48.85),
 (31367, '77', 'Mauperthuis', '77120', 3.03333, 48.7667),
@@ -31576,8 +31788,7 @@ INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`
 (31501, '77', 'Crèvecœur-en-Brie', '77610', 2.9, 48.75),
 (31502, '77', 'Vaux-sur-Lunain', '77710', 2.93333, 48.2167),
 (31503, '77', 'Coutençon', '77154', 3, 48.4667),
-(31504, '77', 'Château-Landon', '77570', 2.7, 48.15);
-INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`) VALUES
+(31504, '77', 'Château-Landon', '77570', 2.7, 48.15),
 (31505, '77', 'Villiers-en-Bière', '77190', 2.6, 48.4833),
 (31506, '77', 'Pringy', '77310', 2.56667, 48.5167),
 (31507, '77', 'Ozoir-la-Ferrière', '77330', 2.66667, 48.7667),
@@ -32340,7 +32551,8 @@ INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`
 (32264, '79', 'Paizay-le-Chapt', '79170', -0.183333, 46.0833),
 (32265, '80', 'Moyenneville', '80870', 1.75, 50.075),
 (32266, '80', 'Bussu', '80200', 2.96667, 49.9333),
-(32267, '80', 'Marquaix', '80240', 3.06667, 49.9333),
+(32267, '80', 'Marquaix', '80240', 3.06667, 49.9333);
+INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`) VALUES
 (32268, '80', 'Crouy-Saint-Pierre', '80310', 2.0875, 49.9692),
 (32269, '80', 'Beaumetz', '80370', 2.11667, 50.1333),
 (32270, '80', 'Méricourt-en-Vimeu', '80640', 1.95, 49.9),
@@ -32488,8 +32700,7 @@ INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`
 (32412, '80', 'Montonvillers', '80260', 2.29556, 49.9937),
 (32413, '80', 'Hervilly', '80240', 3.11667, 49.9333),
 (32414, '80', 'Pertain', '80320', 2.86667, 49.8167),
-(32415, '80', 'Autheux', '80600', 2.23333, 50.1333);
-INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`) VALUES
+(32415, '80', 'Autheux', '80600', 2.23333, 50.1333),
 (32416, '80', 'Marcelcave', '80720', 2.56667, 49.85),
 (32417, '80', 'Daours', '80800', 2.45, 49.9),
 (32418, '80', 'Limeux', '80490', 1.81667, 50.0167),
@@ -33271,7 +33482,8 @@ INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`
 (33194, '81', 'Guitalens-L''Albarède', '81220', 2.05, 43.65),
 (33195, '81', 'Bellegarde', '81430', 2.27306, 43.9064),
 (33196, '81', 'Montirat', '81190', 2.11667, 44.15),
-(33197, '81', 'Salles', '81640', 2.05, 44.0667),
+(33197, '81', 'Salles', '81640', 2.05, 44.0667);
+INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`) VALUES
 (33198, '81', 'Moulin-Mage', '81320', 2.80464, 43.7113),
 (33199, '81', 'Tonnac', '81170', 1.88333, 44.0667),
 (33200, '81', 'Briatexte', '81390', 1.91667, 43.75),
@@ -33426,8 +33638,7 @@ INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`
 (33349, '81', 'Le Dourn', '81340', 2.46667, 44.0167),
 (33350, '81', 'Saint-Urcisse', '81630', 1.63333, 43.95),
 (33351, '81', 'Saint-Paul-Cap-de-Joux', '81220', 1.98333, 43.65),
-(33352, '81', 'Mouzieys-Panens', '81170', 1.95, 44.1);
-INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`) VALUES
+(33352, '81', 'Mouzieys-Panens', '81170', 1.95, 44.1),
 (33353, '81', 'Noailles', '81170', 1.98333, 44.0167),
 (33354, '81', 'Cammazes', '81540', 2.08333, 43.4167),
 (33355, '81', 'Valdurenque', '81090', 2.31667, 43.5667),
@@ -34189,7 +34400,8 @@ INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`
 (34111, '85', 'Curzon', '85540', -1.3, 46.45),
 (34112, '85', 'Triaize', '85580', -1.2, 46.3833),
 (34113, '85', 'Champagné-les-Marais', '85450', -1.13333, 46.3667),
-(34114, '85', 'Mouchamps', '85640', -1.06667, 46.7833),
+(34114, '85', 'Mouchamps', '85640', -1.06667, 46.7833);
+INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`) VALUES
 (34115, '85', 'Sainte-Gemme-la-Plaine', '85400', -1.1, 46.4833),
 (34116, '85', 'Beaurepaire', '85500', -1.08333, 46.9167),
 (34117, '85', 'Le Langon', '85370', -0.95, 46.4333),
@@ -34341,8 +34553,7 @@ INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`
 (34263, '86', 'Saires', '86420', 0.25, 46.8833),
 (34264, '86', 'Bellefonds', '86210', 0.583333, 46.6333),
 (34265, '86', 'Scorbé-Clairvaux', '86140', 0.416667, 46.8167),
-(34266, '86', 'Joussé', '86350', 0.466667, 46.2333);
-INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`) VALUES
+(34266, '86', 'Joussé', '86350', 0.466667, 46.2333),
 (34267, '86', 'Charroux', '86250', 0.4, 46.15),
 (34268, '86', 'Saint-Maurice-la-Clouère', '86160', 0.416667, 46.3667),
 (34269, '86', 'Asnois', '86250', 0.416667, 46.1167),
@@ -35106,7 +35317,8 @@ INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`
 (35027, '88', 'Clérey-la-Côte', '88630', 5.76667, 48.4833),
 (35028, '88', 'Bult', '88700', 6.6, 48.3),
 (35029, '88', 'Belmont-sur-Buttant', '88600', 6.76667, 48.2167),
-(35030, '88', 'Brechainville', '88350', 5.48333, 48.3667),
+(35030, '88', 'Brechainville', '88350', 5.48333, 48.3667);
+INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`) VALUES
 (35031, '88', 'Valleroy-aux-Saules', '88270', 6.15, 48.25),
 (35032, '88', 'Bazoilles-et-Ménil', '88500', 6.1, 48.2667),
 (35033, '88', 'Igney', '88150', 6.4, 48.2833),
@@ -35264,8 +35476,7 @@ INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`
 (35185, '89', 'Tannerre-en-Puisaye', '89350', 3.13333, 47.7333),
 (35186, '89', 'Fontenay-sous-Fouronnes', '89660', 3.6, 47.6167),
 (35187, '89', 'Saint-Maurice-Thizouaille', '89110', 3.36195, 47.8339),
-(35188, '89', 'Domecy-sur-le-Vault', '89200', 3.81667, 47.5);
-INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`) VALUES
+(35188, '89', 'Domecy-sur-le-Vault', '89200', 3.81667, 47.5),
 (35189, '89', 'Prégilbert', '89460', 3.66667, 47.6333),
 (35190, '89', 'Bœurs-en-Othe', '89770', 3.71667, 48.1333),
 (35191, '89', 'Moulins-sur-Ouanne', '89130', 3.33333, 47.7167),
@@ -36037,7 +36248,8 @@ INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`
 (35957, '93', 'Villepinte', '93420', 2.53333, 48.9667),
 (35958, '93', 'Bobigny', '93000', 2.45, 48.9),
 (35959, '93', 'Pierrefitte-sur-Seine', '93380', 2.36667, 48.9667),
-(35960, '93', 'Tremblay-en-France', '93290', 2.57639, 48.9562),
+(35960, '93', 'Tremblay-en-France', '93290', 2.57639, 48.9562);
+INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`) VALUES
 (35961, '93', 'Vaujours', '93410', 2.56667, 48.9333),
 (35962, '93', 'Montfermeil', '93370', 2.56667, 48.9),
 (35963, '93', 'L''Île-Saint-Denis', '93450', 2.33333, 48.9333),
@@ -36197,8 +36409,7 @@ INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`
 (36117, '95', 'Neuilly-en-Vexin', '95640', 1.98333, 49.1667),
 (36118, '95', 'Taverny', '95150', 2.21667, 49.0333),
 (36119, '95', 'Bessancourt', '95550', 2.21667, 49.0333),
-(36120, '95', 'Vigny', '95450', 1.93333, 49.0833);
-INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`) VALUES
+(36120, '95', 'Vigny', '95450', 1.93333, 49.0833),
 (36121, '95', 'Ableiges', '95450', 1.98333, 49.0833),
 (36122, '95', 'Beaumont-sur-Oise', '95260', 2.28333, 49.1333),
 (36123, '95', 'Theuville', '95810', 2.06667, 49.15),
@@ -36786,11 +36997,13 @@ INSERT INTO `cities` (`id`, `dpt_id`, `city`, `zipcode`, `longitude`, `latitude`
 -- Structure de la table `departments`
 --
 
-CREATE TABLE `departments` (
+CREATE TABLE IF NOT EXISTS `departments` (
   `id` char(2) NOT NULL DEFAULT '',
   `dpt` varchar(50) NOT NULL DEFAULT '',
-  `region_id` tinyint(4) NOT NULL DEFAULT '0'
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `region_id` tinyint(4) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `id_region` (`region_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Contenu de la table `departments`
@@ -36897,13 +37110,910 @@ INSERT INTO `departments` (`id`, `dpt`, `region_id`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `equipment_types`
+--
+
+CREATE TABLE IF NOT EXISTS `equipment_types` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=20 ;
+
+--
+-- Contenu de la table `equipment_types`
+--
+
+INSERT INTO `equipment_types` (`id`, `title`) VALUES
+(1, 'tous types de matériel'),
+(2, 'matériel aquatique'),
+(3, 'matériel de déblaiement'),
+(4, 'matériel divers'),
+(5, 'matériel d''éclairage'),
+(6, 'matériel d''élagage'),
+(7, 'matériel éléctrique'),
+(8, 'matériel de formation'),
+(9, 'tenues vestimentaires'),
+(10, 'matériel d''hébergement'),
+(11, 'matériel d''incendie'),
+(12, 'matériel informatique'),
+(13, 'matériel de logistique'),
+(14, 'matériel de pompage'),
+(15, 'Promotion Communication'),
+(16, 'matériel médical'),
+(17, 'Lots de sauvetage'),
+(18, 'Equipement Sécurité - EPI'),
+(19, 'matériel d''émission/transmission');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `events`
+--
+
+CREATE TABLE IF NOT EXISTS `events` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(70) DEFAULT NULL,
+  `created` date DEFAULT NULL,
+  `modified` date DEFAULT NULL,
+  `instructions` varchar(400) DEFAULT NULL,
+  `event_start_date` datetime DEFAULT NULL,
+  `event_end_date` datetime DEFAULT NULL,
+  `public` tinyint(1) DEFAULT NULL,
+  `module` varchar(255) DEFAULT NULL,
+  `module_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=84 ;
+
+--
+-- Contenu de la table `events`
+--
+
+INSERT INTO `events` (`id`, `title`, `created`, `modified`, `instructions`, `event_start_date`, `event_end_date`, `public`, `module`, `module_id`) VALUES
+(71, 'accueil', '2016-09-21', '2016-09-24', 'vigilance', '2016-09-26 09:21:28', '2016-10-04 16:57:00', 0, 'operations', 8),
+(68, 'accueil', '2016-09-21', '2016-10-11', 'vigilance', '2016-10-11 20:54:00', '2016-10-12 20:54:00', 0, 'operations', 7),
+(72, 'Resr', '2016-09-21', '2016-09-21', 'sshh', '2016-09-21 21:58:00', '2016-09-23 21:58:00', NULL, 'operations', 5),
+(82, 'yudsyu', '2016-09-23', '2016-09-23', 'dfw', '2016-08-16 00:00:00', '2016-09-30 16:09:00', 0, 'formations', 8),
+(83, 'formation', '2016-09-23', '2016-09-23', 'dormir', '2016-09-02 00:00:00', '2016-09-22 16:10:00', NULL, 'formations', 8);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `events_teams`
+--
+
+CREATE TABLE IF NOT EXISTS `events_teams` (
+  `team_id` int(11) NOT NULL DEFAULT '0',
+  `event_id` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`team_id`,`event_id`),
+  KEY `event_id` (`event_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Contenu de la table `events_teams`
+--
+
+INSERT INTO `events_teams` (`team_id`, `event_id`) VALUES
+(41, 69),
+(41, 72),
+(41, 82),
+(43, 72),
+(48, 68),
+(50, 71),
+(51, 71);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `event_types`
+--
+
+CREATE TABLE IF NOT EXISTS `event_types` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `code` varchar(5) NOT NULL,
+  `title` varchar(50) DEFAULT NULL,
+  `module` varchar(12) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=22 ;
+
+--
+-- Contenu de la table `event_types`
+--
+
+INSERT INTO `event_types` (`id`, `code`, `title`, `module`) VALUES
+(1, 'CER', 'Cérémonie', 'event'),
+(2, 'COM', 'Communication - Promotion', 'event'),
+(3, 'DIV', 'Evénement divers', 'event'),
+(4, 'MC', 'Main courante', 'event'),
+(5, 'MLA', 'Mission Logistique et Administrative', 'event'),
+(6, 'REU', 'Réunion', 'event'),
+(7, 'SPO', 'Compétition sportive', 'event'),
+(8, 'TEC', 'Entretien, opérations techniques', 'event'),
+(9, 'WEB', 'Visio conférence', 'event'),
+(10, 'EXE', 'Participation à exercice état-sdis-samu', 'formations'),
+(11, 'MAN', 'Manoeuvre', 'formations'),
+(12, 'AH', 'Autres actions humanitaires', 'catastrophes'),
+(13, 'AIP', 'Aide aux populations', 'catastrophes'),
+(14, 'HEB', 'Hébergement durgence', 'catastrophes'),
+(15, 'MET', 'Alerte des bénévoles', 'catastrophes'),
+(16, 'COOP', 'Coopération état-sdis-samu', 'operations'),
+(17, 'DPS', 'Dispositif Prévisionnel de Secours', 'operations'),
+(18, 'GAR', 'Garde', 'operations'),
+(19, 'MAR', 'Maraude', 'operations'),
+(20, 'MED', 'Médicalisation, équipe médicale', 'operations'),
+(21, 'NAUT', 'Activité nautique', 'operations');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `formations`
+--
+
+CREATE TABLE IF NOT EXISTS `formations` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `organization_id` int(11) DEFAULT NULL,
+  `diploma` varchar(100) DEFAULT NULL,
+  `skills` varchar(100) DEFAULT NULL,
+  `title` varchar(50) DEFAULT NULL,
+  `formation_start` datetime DEFAULT NULL,
+  `formation_end` datetime DEFAULT NULL,
+  `price` int(11) DEFAULT NULL,
+  `instruction` text,
+  `city_id` int(11) DEFAULT NULL,
+  `barrack_id` int(11) DEFAULT NULL,
+  `formation_type_id` int(11) DEFAULT NULL,
+  `closed` date DEFAULT NULL,
+  `address` varchar(70) DEFAULT NULL,
+  `lattitude` float DEFAULT NULL,
+  `longitude` float DEFAULT NULL,
+  `bill_id` int(11) DEFAULT NULL,
+  `cancel` tinyint(1) DEFAULT NULL,
+  `cancel_detail` varchar(250) DEFAULT NULL,
+  `is_closed` int(11) DEFAULT NULL,
+  `closed_date` datetime DEFAULT NULL,
+  `is_active` tinyint(1) DEFAULT NULL,
+  `details` text,
+  `horraires` varchar(200) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=12 ;
+
+--
+-- Contenu de la table `formations`
+--
+
+INSERT INTO `formations` (`id`, `organization_id`, `diploma`, `skills`, `title`, `formation_start`, `formation_end`, `price`, `instruction`, `city_id`, `barrack_id`, `formation_type_id`, `closed`, `address`, `lattitude`, `longitude`, `bill_id`, `cancel`, `cancel_detail`, `is_closed`, `closed_date`, `is_active`, `details`, `horraires`) VALUES
+(8, NULL, 'ytrezzeqs', 'PLS', 'formation', '2016-09-22 13:37:00', '2016-09-22 13:37:00', 13432, 'serfcsc', 15, 19, 1, NULL, 'sergfvfgsggr', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'lkfdùks', '24/24');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `formation_types`
+--
+
+CREATE TABLE IF NOT EXISTS `formation_types` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) DEFAULT NULL,
+  `level` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+--
+-- Contenu de la table `formation_types`
+--
+
+INSERT INTO `formation_types` (`id`, `name`, `level`) VALUES
+(1, 'pls', 'pls');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `functions`
+--
+
+CREATE TABLE IF NOT EXISTS `functions` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=12 ;
+
+--
+-- Contenu de la table `functions`
+--
+
+INSERT INTO `functions` (`id`, `title`) VALUES
+(1, 'PSE1 - Secouriste'),
+(2, 'PSE2 - Equipier secouriste'),
+(3, 'CE0 - Chef d''équipe'),
+(4, 'CE1 - Chef de poste'),
+(5, 'CE2 - Chef de section'),
+(6, 'CE3 - Chef de dispositif'),
+(7, 'CIA - Coordinateur Inter Associatif'),
+(8, 'LAT - Logisticien Administratif et Technique'),
+(9, 'CVPS - Conducteur VPS'),
+(10, 'RAD - Opérateur radio'),
+(11, 'DEB - Déblaiement');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `grades`
+--
+
+CREATE TABLE IF NOT EXISTS `grades` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `name` (`name`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=58 ;
+
+--
+-- Contenu de la table `grades`
+--
+
+INSERT INTO `grades` (`id`, `name`) VALUES
+(2, 'adjoint administratif 1ère classe'),
+(3, 'adjoint administratif 2ème classe'),
+(4, 'adjoint administratif 2ème classe non titulaire'),
+(5, 'adjoint administratif principal de 1ère classe'),
+(6, 'adjoint administratif principal de 2ème classe'),
+(11, 'adjoint technique de 1ère classe'),
+(12, 'adjoint technique de 2ème classe'),
+(13, 'adjoint technique de 2ème classe non titulaire'),
+(15, 'adjoint technique principal de 1ère classe'),
+(16, 'adjoint technique principal de 2ème classe'),
+(8, 'adjudant'),
+(7, 'adjudant-chef'),
+(9, 'agent de maîtrise'),
+(10, 'agent de maîtrise principal'),
+(17, 'attaché'),
+(14, 'attaché principal'),
+(25, 'capitaine'),
+(24, 'caporal'),
+(18, 'caporal-chef'),
+(20, 'colonel'),
+(19, 'commandant'),
+(21, 'contrôleur de travaux'),
+(22, 'contrôleur de travaux en chef'),
+(23, 'contrôleur principal de travaux'),
+(26, 'directeur territorial'),
+(31, 'Infirmier'),
+(32, 'Infirmier Chef'),
+(33, 'Infirmier d''encadrement'),
+(34, 'Infirmier Principal'),
+(29, 'ingénieur'),
+(27, 'ingénieur en chef de classe exceptionnelle'),
+(28, 'ingénieur en chef de classe normale'),
+(30, 'ingénieur principal'),
+(35, 'jeune sapeur pompier 1'),
+(36, 'jeune sapeur pompier 2'),
+(37, 'jeune sapeur pompier 3'),
+(38, 'jeune sapeur pompier 4'),
+(39, 'jeune sapeur pompier breveté'),
+(41, 'lieutenant 1ère classe'),
+(42, 'lieutenant 2ème classe'),
+(40, 'lieutenant-colonel'),
+(43, 'major'),
+(46, 'Médecin Capitaine'),
+(45, 'Médecin Colonel'),
+(44, 'Médecin Commandant'),
+(47, 'Médecin Lieutenant Colonel'),
+(1, 'non renseigné'),
+(48, 'rédacteur'),
+(49, 'rédacteur chef'),
+(50, 'rédacteur principal'),
+(51, 'sapeur 1ère classe'),
+(52, 'sapeur 2ème classe'),
+(54, 'sergent'),
+(53, 'sergent-chef'),
+(55, 'technicien supérieur'),
+(56, 'technicien supérieur chef'),
+(57, 'technicien supérieur principal');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `history_mp`
+--
+
+CREATE TABLE IF NOT EXISTS `history_mp` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `to_user` int(11) NOT NULL,
+  `from_user` int(11) NOT NULL,
+  `subject` varchar(255) NOT NULL,
+  `text` text NOT NULL,
+  `created` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=30 ;
+
+--
+-- Contenu de la table `history_mp`
+--
+
+INSERT INTO `history_mp` (`id`, `to_user`, `from_user`, `subject`, `text`, `created`) VALUES
+(1, 2, 4, 'reponds a celui la si t''as le temps stp', 'J''ai cleaner toutes les tables messages pour y voir plus clair, pas de doute sur les envoi en masse, ca marche c sur, par contre j''ai un doute sur l''historique des conversations....a voir. Envoi 2 mp a la suite et ca devrait suffir, je verrais ca demain au pire, ca sera plus simple.', '2016-09-19 19:35:42'),
+(2, 4, 2, 're: reponds a celui la si t''as le temps stp', 'Et je te réponds !', '2016-09-19 19:43:10'),
+(3, 4, 2, 'Military Police', 'You are under arrest !', '2016-09-19 19:43:48'),
+(4, 4, 2, 'blibal', 'balbal', '2016-09-19 19:44:06'),
+(5, 2, 4, 're: re: reponds a celui la si t''as le temps stp', '<b><span style="color:rgb(0,0,255);">Un pti dernier et j''arrete, bonne soirée.</span></b>', '2016-09-19 19:46:00'),
+(6, 1, 4, 'test historique des conversations', '....un test !!!!!!!!!!!!', '2016-09-21 13:57:18'),
+(7, 2, 4, 'test historique des conversations', '....un test !!!!!!!!!!!!', '2016-09-21 13:57:21'),
+(8, 3, 4, 'test historique des conversations', '....un test !!!!!!!!!!!!', '2016-09-21 13:57:23'),
+(9, 9, 4, 'test historique des conversations', '....un test !!!!!!!!!!!!', '2016-09-21 13:57:25'),
+(10, 10, 4, 'test historique des conversations', '....un test !!!!!!!!!!!!', '2016-09-21 13:57:26'),
+(11, 4, 3, 'kjqsmoijdmoiw', 'yoigwoyuwodxyu', '2016-09-21 14:12:27'),
+(12, 4, 2, 're: test historique des conversations', 'STOP LE SPAM', '2016-09-21 14:14:17'),
+(13, 4, 3, 're: test historique des conversations', 'ouirresiy', '2016-09-21 14:15:21'),
+(14, 4, 4, 'fhgj', 'fjg', '2016-09-24 13:07:38'),
+(15, 4, 4, 'gkjh', 'ghjk', '2016-09-24 13:37:54'),
+(16, 4, 4, 'test notif', 'vla&nbsp;', '2016-09-25 14:29:58'),
+(17, 4, 4, 'test notif', 'hi', '2016-09-25 14:32:46'),
+(18, 1, 3, 'haaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 'haaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', '2016-09-26 09:18:52'),
+(19, 2, 3, 'haaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 'haaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', '2016-09-26 09:18:55'),
+(20, 4, 3, 'haaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 'haaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', '2016-09-26 09:18:57'),
+(21, 3, 2, 're: haaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 'BEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEHHHHHHHHHHHHHHHHHHHHHHhh', '2016-09-26 09:22:04'),
+(22, 3, 1, 're: haaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 'hbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb', '2016-09-26 11:03:59'),
+(23, 3, 1, 're: haaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 'hbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb', '2016-09-26 11:08:06'),
+(24, 4, 4, 'uk', 'uk', '2016-10-01 09:40:17'),
+(25, 4, 4, 'ryth', 'rht', '2016-10-08 09:51:43'),
+(26, 4, 4, 'ryth', 'rht', '2016-10-08 09:51:46'),
+(27, 4, 1, 'rfuj', 'rty', '2016-10-08 09:55:30'),
+(28, 4, 4, 'ty', 'tyut', '2016-10-28 19:37:30'),
+(29, 4, 4, 'fjh', 'fhg', '2016-10-28 19:59:39');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `materials`
+--
+
+CREATE TABLE IF NOT EXISTS `materials` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) NOT NULL,
+  `description` text,
+  `material_type_id` int(11) NOT NULL,
+  `barrack_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `m_reference` varchar(250) NOT NULL,
+  `order_made` tinyint(1) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `name` (`name`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=165 ;
+
+--
+-- Contenu de la table `materials`
+--
+
+INSERT INTO `materials` (`id`, `name`, `description`, `material_type_id`, `barrack_id`, `user_id`, `m_reference`, `order_made`) VALUES
+(154, 'Sceau normal', 'Un sceau basique.', 1, 18, 0, '', 0),
+(156, 'Dosettes de café', 'Glouglou café.', 1, 18, 0, '', 0),
+(157, 'trousse de secours', 'un trousse...de secours donc', 1, 19, 0, '', 0),
+(158, 'Seringue', 'seringue', 1, 19, 0, '', 0),
+(159, 'Tenues', 'Les uniformes de l''antenne', 2, 20, 0, '', 0),
+(162, 'Blaster Laser', 'Pour pewpew-er les méchants.', 1, 18, 10, 'BST-GX-4000', 0),
+(163, 'Pelle solide brisée des tornades +3', '2 sockets.', 1, 19, 0, 'TTQ-IT', 1),
+(164, 'Casques', 'fef', 1, 18, 0, 'fefeefe', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `materials_teams`
+--
+
+CREATE TABLE IF NOT EXISTS `materials_teams` (
+  `team_id` int(11) NOT NULL DEFAULT '0',
+  `material_id` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`team_id`,`material_id`),
+  KEY `material_id` (`material_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Contenu de la table `materials_teams`
+--
+
+INSERT INTO `materials_teams` (`team_id`, `material_id`) VALUES
+(41, 154),
+(41, 156),
+(41, 157),
+(48, 156),
+(48, 157),
+(50, 162);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `material_stocks`
+--
+
+CREATE TABLE IF NOT EXISTS `material_stocks` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `material_id` int(11) NOT NULL,
+  `stock` int(6) NOT NULL,
+  `affectation` varchar(15) NOT NULL,
+  `affectation_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=27 ;
+
+--
+-- Contenu de la table `material_stocks`
+--
+
+INSERT INTO `material_stocks` (`id`, `material_id`, `stock`, `affectation`, `affectation_id`) VALUES
+(1, 154, 1, 'barracks', 18),
+(2, 154, -1, 'users', 4),
+(4, 157, 4100, 'barracks', 19),
+(5, 157, 900, 'users', 18),
+(6, 158, 122, 'barracks', 18),
+(7, 159, 10, 'barracks', 20),
+(8, 158, -11, 'users', 1),
+(9, 158, -1, 'users', 3),
+(10, 158, -1, 'users', 3),
+(11, 158, -19, 'users', 2),
+(12, 159, -3, 'users', 2),
+(14, 160, 24, 'barracks', 18),
+(24, 157, -300, 'teams', 48),
+(23, 157, -3, 'teams', 49),
+(22, 156, 200, 'barracks', 18),
+(25, 157, -230, 'teams', 50),
+(26, 158, -50, 'users', 16);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `material_types`
+--
+
+CREATE TABLE IF NOT EXISTS `material_types` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(25) NOT NULL,
+  `description` varchar(60) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `name` (`name`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
+
+--
+-- Contenu de la table `material_types`
+--
+
+INSERT INTO `material_types` (`id`, `name`, `description`) VALUES
+(1, 'Logistisque', 'Affecté à la caserne simplon'),
+(2, 'Habillement', 'Uniformes'),
+(3, 'Hébergement', 'Tentes, etc'),
+(4, 'Eclairage', ''),
+(5, 'Secours à personne', ''),
+(6, 'Formation', ''),
+(7, 'Véhicules', ''),
+(8, 'Energie', '');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `messages`
+--
+
+CREATE TABLE IF NOT EXISTS `messages` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `to_user` int(11) NOT NULL,
+  `from_user` int(11) NOT NULL,
+  `subject` varchar(255) NOT NULL,
+  `text` text NOT NULL,
+  `created` datetime NOT NULL,
+  `send` tinyint(1) NOT NULL,
+  `recipients` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=53 ;
+
+--
+-- Contenu de la table `messages`
+--
+
+INSERT INTO `messages` (`id`, `to_user`, `from_user`, `subject`, `text`, `created`, `send`, `recipients`) VALUES
+(1, 2, 4, 'reponds a celui la si t''as le temps stp', 'J''ai cleaner toutes les tables messages pour y voir plus clair, pas de doute sur les envoi en masse, ca marche c sur, par contre j''ai un doute sur l''historique des conversations....a voir. Envoi 2 mp a la suite et ca devrait suffir, je verrais ca demain au pire, ca sera plus simple.', '2016-09-19 19:35:42', 0, ''),
+(2, 2, 4, 'reponds a celui la si t''as le temps stp', 'J''ai cleaner toutes les tables messages pour y voir plus clair, pas de doute sur les envoi en masse, ca marche c sur, par contre j''ai un doute sur l''historique des conversations....a voir. Envoi 2 mp a la suite et ca devrait suffir, je verrais ca demain au pire, ca sera plus simple.', '2016-09-19 19:35:43', 1, 'a:1:{i:0;s:1:"2";}'),
+(11, 1, 4, 'test historique des conversations', '....un test !!!!!!!!!!!!', '2016-09-21 13:57:18', 0, ''),
+(4, 4, 2, 're: reponds a celui la si t''as le temps stp', 'Et je te réponds !', '2016-09-19 19:43:10', 1, 'a:1:{i:0;i:4;}'),
+(12, 2, 4, 'test historique des conversations', '....un test !!!!!!!!!!!!', '2016-09-21 13:57:21', 0, ''),
+(6, 4, 2, 'Military Police', 'You are under arrest !', '2016-09-19 19:43:50', 1, 'a:1:{i:0;s:1:"4";}'),
+(8, 4, 2, 'blibal', 'balbal', '2016-09-19 19:44:08', 1, 'a:1:{i:0;s:1:"4";}'),
+(9, 2, 4, 're: re: reponds a celui la si t''as le temps stp', '<b><span style="color:rgb(0,0,255);">Un pti dernier et j''arrete, bonne soirée.</span></b>', '2016-09-19 19:46:00', 0, ''),
+(10, 2, 4, 're: re: reponds a celui la si t''as le temps stp', '<b><span style="color:rgb(0,0,255);">Un pti dernier et j''arrete, bonne soirée.</span></b>', '2016-09-19 19:46:00', 1, 'a:1:{i:0;i:2;}'),
+(13, 3, 4, 'test historique des conversations', '....un test !!!!!!!!!!!!', '2016-09-21 13:57:23', 0, ''),
+(14, 9, 4, 'test historique des conversations', '....un test !!!!!!!!!!!!', '2016-09-21 13:57:25', 0, ''),
+(15, 10, 4, 'test historique des conversations', '....un test !!!!!!!!!!!!', '2016-09-21 13:57:26', 0, ''),
+(28, 4, 4, 'test notif', 'vla&nbsp;', '2016-09-25 14:30:00', 1, 'a:1:{i:0;s:1:"4";}'),
+(17, 4, 3, 'kjqsmoijdmoiw', 'yoigwoyuwodxyu', '2016-09-21 14:12:27', 0, ''),
+(18, 4, 3, 'kjqsmoijdmoiw', 'yoigwoyuwodxyu', '2016-09-21 14:12:30', 1, 'a:1:{i:0;s:1:"4";}'),
+(19, 4, 2, 're: test historique des conversations', 'STOP LE SPAM', '2016-09-21 14:14:17', 0, ''),
+(20, 4, 2, 're: test historique des conversations', 'STOP LE SPAM', '2016-09-21 14:14:17', 1, 'a:1:{i:0;i:4;}'),
+(21, 4, 3, 're: test historique des conversations', 'ouirresiy', '2016-09-21 14:15:21', 0, ''),
+(22, 4, 3, 're: test historique des conversations', 'ouirresiy', '2016-09-21 14:15:21', 1, 'a:1:{i:0;i:4;}'),
+(44, 4, 4, 'ryth', 'rht', '2016-10-08 09:51:45', 1, 'a:1:{i:0;s:1:"4";}'),
+(24, 4, 4, 'fhgj', 'fjg', '2016-09-24 13:07:41', 1, 'a:1:{i:0;s:1:"4";}'),
+(26, 4, 4, 'gkjh', 'ghjk', '2016-09-24 13:37:56', 1, 'a:1:{i:0;s:1:"4";}'),
+(30, 4, 4, 'test notif', 'hi', '2016-09-25 14:32:47', 1, 'a:1:{i:0;s:1:"4";}'),
+(31, 1, 3, 'haaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 'haaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', '2016-09-26 09:18:52', 0, ''),
+(32, 2, 3, 'haaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 'haaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', '2016-09-26 09:18:55', 0, ''),
+(49, 4, 4, 'ty', 'tyut', '2016-10-28 19:37:30', 0, ''),
+(42, 4, 4, 'uk', 'uk', '2016-10-01 09:40:19', 1, 'a:1:{i:0;s:1:"4";}'),
+(34, 4, 3, 'haaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 'haaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', '2016-09-26 09:18:58', 1, 'a:3:{i:0;s:1:"1";i:1;s:2:" 2";i:2;s:2:" 4";}'),
+(35, 3, 2, 're: haaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 'BEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEHHHHHHHHHHHHHHHHHHHHHHhh', '2016-09-26 09:22:04', 0, ''),
+(36, 3, 2, 're: haaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 'BEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEHHHHHHHHHHHHHHHHHHHHHHhh', '2016-09-26 09:22:04', 1, 'a:1:{i:0;i:3;}'),
+(37, 3, 1, 're: haaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 'hbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb', '2016-09-26 11:03:59', 0, ''),
+(38, 3, 1, 're: haaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 'hbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb', '2016-09-26 11:03:59', 1, 'a:1:{i:0;i:3;}'),
+(39, 3, 1, 're: haaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 'hbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb', '2016-09-26 11:08:06', 0, ''),
+(40, 3, 1, 're: haaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 'hbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb', '2016-09-26 11:08:06', 1, 'a:1:{i:0;i:3;}'),
+(46, 4, 4, 'ryth', 'rht', '2016-10-08 09:51:47', 1, 'a:1:{i:0;s:1:"4";}'),
+(47, 4, 1, 'rfuj', 'rty', '2016-10-08 09:55:30', 0, ''),
+(48, 4, 1, 'rfuj', 'rty', '2016-10-08 09:55:31', 1, 'a:1:{i:0;s:1:"4";}'),
+(50, 4, 4, 'ty', 'tyut', '2016-10-28 19:37:33', 1, 'a:1:{i:0;s:1:"4";}'),
+(52, 4, 4, 'fjh', 'fhg', '2016-10-28 19:59:40', 1, 'a:1:{i:0;s:1:"4";}');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `notifications`
+--
+
+CREATE TABLE IF NOT EXISTS `notifications` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `source_id` int(11) NOT NULL,
+  `receiver` int(11) NOT NULL,
+  `type` int(1) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=87 ;
+
+--
+-- Contenu de la table `notifications`
+--
+
+INSERT INTO `notifications` (`id`, `source_id`, `receiver`, `type`) VALUES
+(1, 17, 0, 0),
+(2, 18, 0, 0),
+(71, 14, 9, 0),
+(83, 45, 4, 0),
+(12, 55, 4, 0),
+(13, 57, 4, 0),
+(14, 65, 4, 0),
+(16, 83, 4, 0),
+(19, 95, 3, 0),
+(20, 97, 1, 0),
+(21, 98, 2, 0),
+(24, 101, 10, 0),
+(25, 103, 1, 0),
+(26, 104, 2, 0),
+(28, 106, 9, 0),
+(29, 107, 10, 0),
+(30, 109, 1, 0),
+(31, 110, 2, 0),
+(33, 112, 9, 0),
+(34, 113, 10, 0),
+(35, 115, 9, 0),
+(36, 116, 9, 0),
+(37, 117, 9, 0),
+(79, 32, 2, 0),
+(40, 160, 1, 0),
+(41, 161, 2, 0),
+(63, 247, 10, 0),
+(62, 246, 9, 0),
+(50, 185, 3, 0),
+(61, 245, 3, 0),
+(60, 244, 2, 0),
+(59, 243, 1, 0),
+(55, 225, 3, 0),
+(65, 1, 2, 0),
+(72, 15, 10, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `operations`
+--
+
+CREATE TABLE IF NOT EXISTS `operations` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `barrack_id` int(11) NOT NULL DEFAULT '0',
+  `city_id` int(11) DEFAULT NULL,
+  `address` varchar(180) DEFAULT NULL,
+  `public_headcount` int(11) NOT NULL DEFAULT '0',
+  `operation_activity_id` int(11) NOT NULL DEFAULT '0',
+  `operation_environment_id` int(11) NOT NULL DEFAULT '0',
+  `operation_delay_id` int(11) NOT NULL DEFAULT '0',
+  `public_ris` float NOT NULL DEFAULT '0',
+  `operation_recommendation_id` int(11) NOT NULL DEFAULT '0',
+  `public_reinforcement` varchar(255) NOT NULL DEFAULT '0',
+  `public_total` int(11) NOT NULL DEFAULT '0',
+  `organization_id` int(11) NOT NULL DEFAULT '0',
+  `actors_headcount` int(11) NOT NULL DEFAULT '0',
+  `rescuers_total` int(11) NOT NULL DEFAULT '0',
+  `headcount_total` int(11) NOT NULL DEFAULT '0',
+  `actors_organization` text,
+  `general_organization` text,
+  `transport_organization` text,
+  `team_instructions` text,
+  `report_assisted` int(11) DEFAULT NULL,
+  `report_slight` int(11) DEFAULT NULL,
+  `report_medicalized` int(11) DEFAULT NULL,
+  `report_reinforcement` int(11) DEFAULT NULL,
+  `report_evacuated` int(11) DEFAULT NULL,
+  `report_bilan_notes` text,
+  `meals_morning` int(11) NOT NULL DEFAULT '0',
+  `meals_lunch` int(11) NOT NULL DEFAULT '0',
+  `meals_dinner` int(11) NOT NULL DEFAULT '0',
+  `meals_unit_cost` int(11) NOT NULL DEFAULT '0',
+  `meals_charge` int(11) NOT NULL DEFAULT '0',
+  `meals_cost` int(11) NOT NULL DEFAULT '0',
+  `cost_kilometers_vps` int(11) NOT NULL DEFAULT '0',
+  `cost_kilometers_other` int(11) NOT NULL DEFAULT '0',
+  `discount_percentage` int(11) NOT NULL DEFAULT '0',
+  `discount_reason` text,
+  `cost_percentage_adpc` int(11) NOT NULL DEFAULT '0',
+  `total_cost` int(11) NOT NULL DEFAULT '0',
+  `date` date NOT NULL,
+  `operation_type_id` int(11) DEFAULT NULL,
+  `latitude` float DEFAULT NULL,
+  `longitude` float DEFAULT NULL,
+  `title` varchar(100) DEFAULT NULL,
+  `bill_id` int(11) DEFAULT NULL,
+  `is_closed` tinyint(4) DEFAULT NULL,
+  `canceled` tinyint(4) DEFAULT NULL,
+  `canceled_detail` varchar(400) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
+
+--
+-- Contenu de la table `operations`
+--
+
+INSERT INTO `operations` (`id`, `barrack_id`, `city_id`, `address`, `public_headcount`, `operation_activity_id`, `operation_environment_id`, `operation_delay_id`, `public_ris`, `operation_recommendation_id`, `public_reinforcement`, `public_total`, `organization_id`, `actors_headcount`, `rescuers_total`, `headcount_total`, `actors_organization`, `general_organization`, `transport_organization`, `team_instructions`, `report_assisted`, `report_slight`, `report_medicalized`, `report_reinforcement`, `report_evacuated`, `report_bilan_notes`, `meals_morning`, `meals_lunch`, `meals_dinner`, `meals_unit_cost`, `meals_charge`, `meals_cost`, `cost_kilometers_vps`, `cost_kilometers_other`, `discount_percentage`, `discount_reason`, `cost_percentage_adpc`, `total_cost`, `date`, `operation_type_id`, `latitude`, `longitude`, `title`, `bill_id`, `is_closed`, `canceled`, `canceled_detail`) VALUES
+(5, 19, 15, 'drg', 0, 1, 1, 1, 0, 1, '0', 0, 0, 0, 0, 0, 'drg', 'drg', 'drg', 'drg', NULL, NULL, NULL, NULL, NULL, '', 0, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 0, '2016-09-13', NULL, NULL, NULL, 'zertdrg', NULL, NULL, NULL, NULL),
+(6, 19, 99, 'rue du haut de la croix ', 0, 1, 1, 1, 0, 1, '0', 0, 0, 0, 0, 0, 'orga acteurs', 'orga generale', 'orga transport', 'insteructions equipes', NULL, NULL, NULL, NULL, NULL, '', 0, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 0, '2016-09-14', NULL, 48.1757, 5.7118, 'la fête au village', NULL, NULL, NULL, NULL),
+(7, 19, 34755, 'magdeleine', 0, 1, 1, 1, 0, 1, '0', 0, 0, 0, 0, 0, 'acors', 'general org', 'transport org', 'teams instruc', NULL, NULL, NULL, NULL, NULL, '', 0, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 0, '2016-09-14', NULL, 48.1884, 6.43988, 'fete de la pomme ', NULL, NULL, NULL, NULL),
+(8, 19, 34755, 'rue de la gare', 2341321, 1, 1, 1, 0, 1, '0', 0, 0, 0, 0, 0, '', '', '', '', NULL, NULL, NULL, NULL, NULL, '', 0, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 0, '2016-09-30', NULL, 48.1199, 6.52888, 'foire au boudin', NULL, NULL, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `operation_activities`
+--
+
+CREATE TABLE IF NOT EXISTS `operation_activities` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `coefficient` varchar(255) DEFAULT NULL,
+  `title` text NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
+
+--
+-- Contenu de la table `operation_activities`
+--
+
+INSERT INTO `operation_activities` (`id`, `coefficient`, `title`) VALUES
+(1, '0.25', 'Public assis : spectacle, cérémonie culturelle, réunion publique, restauration, rendez-vous sportif,,,,'),
+(2, '0.30', 'Public debout : cérémonie culturelle, réunion publique, restauration, exposition, foire, salon, comice agricole, ,,,'),
+(3, '0.35', 'Public debout : spectacle avec public statique, fête foraine, rendez-vous sportif avec protection du publique par rapport à l''événement,,,,'),
+(4, '0.40', 'Public debout : spectacle avec public dynamique, danse feria, fête votive, carnaval, spectacle de rue, garnde parade, rendez-vous sportif sans protection du publique par rapport à l''é`vénement'),
+(5, '0.40', 'Evénement se déroulant sur plusieurs jours avec présence permanente du public : hébergement sur site ou à proximité');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `operation_delays`
+--
+
+CREATE TABLE IF NOT EXISTS `operation_delays` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `coefficient` decimal(30,2) DEFAULT NULL,
+  `title` varchar(250) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+
+--
+-- Contenu de la table `operation_delays`
+--
+
+INSERT INTO `operation_delays` (`id`, `coefficient`, `title`) VALUES
+(1, 0.25, '< 10 min'),
+(2, 0.30, '> 10 min et < 20 min'),
+(3, 0.35, '> 20 min et < 30 min'),
+(4, 0.40, '> 30 min');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `operation_environments`
+--
+
+CREATE TABLE IF NOT EXISTS `operation_environments` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `coefficient` decimal(30,2) DEFAULT NULL,
+  `title` longtext,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+
+--
+-- Contenu de la table `operation_environments`
+--
+
+INSERT INTO `operation_environments` (`id`, `coefficient`, `title`) VALUES
+(1, 0.25, 'Structures permanentes (bâtiments, salle en dur, …) / Voies publiques, rue avec accès dégagés / Conditions d''accès aisés'),
+(2, 0.30, 'Structures NON permanentes (gradin, tribunes, châpiteaux,,,) / Espaces naturels <2 hectares / Brancardage 150 m < longueur < 300 m / Terrain en pente sur plus de 100 mètres'),
+(3, 0.35, 'Espaces naturels 2 ha < surface < 5 ha / Brancardage 300 m < longueur < 600 m / Terrain en pente sur plus de 150 mètres / Autres conditions d''accès difficiles'),
+(4, 0.40, 'Espaces naturels > 5 ha / Brancardage : > 600 m Terrain en pente sur plus de 300 m / Autres conditions d''accès difficiles : Talus, escaliers, voie d''accès non carrossables, ,,, / Progression des secours rendue difficile par la présence du public');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `operation_recommendations`
+--
+
+CREATE TABLE IF NOT EXISTS `operation_recommendations` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `coefficient` int(11) DEFAULT '0',
+  `title` longtext,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=21 ;
+
+--
+-- Contenu de la table `operation_recommendations`
+--
+
+INSERT INTO `operation_recommendations` (`id`, `coefficient`, `title`) VALUES
+(1, 0, 'Aucune demande n''a été effectué pour un dispositif public, ou celui ci à peut être été rattaché au dispositif acteur car la manifestation est à but non lucratif.'),
+(2, 2, '1 binôme + 1 lot B'),
+(3, 4, '1 chef + 3 intervenants secouristes + 1 lot A'),
+(4, 6, '1 chef + 3 intervenants secouristes + 1 lot A ++ 1 binôme + 1 lot B'),
+(5, 8, '1 chef + 3 intervenants secouristes + 1 lot A ++ 1 chef + 3 intervenants secouristes + 1 lot C'),
+(6, 10, '1 chef + 3 intervenants secouristes + 1 lot A ++ 1 chef + 3 intervenants secouristes + 1 lot C ++ 1 binôme + 1 lot B'),
+(7, 12, '1 chef + 3 intervenants secouristes + 1 lot A ++ 1 chef + 3 intervenants secouristes + 1 lot C ++ 2 binômes + 2 lots B'),
+(8, 14, '1 chef de dispositif + 2 LAT + 2 postes de secours (4 à 12 personnes par postes au maximum) comprenant  dans l''ensemble 14 intervenants composés en équipes de 4 et en binômes ayant les matériels correspondants'),
+(9, 16, '1 chef de dispositif + 2 LAT + 2 postes de secours (4 à 12 personnes par postes au maximum) comprenant  dans l''ensemble 16 intervenants composés en équipes de 4 et en binômes ayant les matériels correspondants'),
+(10, 18, '1 chef de dispositif + 2 LAT + 2 postes de secours (4 à 12 personnes par postes au maximum) comprenant  dans l''ensemble 18 intervenants composés en équipes de 4 et en binômes ayant les matériels correspondants'),
+(11, 20, '1 chef de dispositif + 2 LAT + 2 postes de secours  4 à 12 personnes par postes au maximum) comprenant  dans l''ensemble 20 intervenants composés en équipes de 4 et en binômes ayant les matériels correspondants'),
+(12, 22, '1 chef de dispositif + 2 LAT + 2 postes de secours (4 à 12 personnes par postes au maximum) comprenant  dans l''ensemble 22 intervenants composés en équipes de 4 et en binômes ayant les matériels correspondants'),
+(13, 24, '1 chef de dispositif + 2 LAT + 2 postes de secours (4 à 12 personnes par postes au maximum) comprenant  dans l''ensemble 24 intervenants composés en équipes de 4 et en binômes ayant les matériels correspondants'),
+(14, 26, '1 chef de dispositif + 2 LAT + 3 postes de secours (4 à 12 personnes par postes au maximum) comprenant  dans l''ensemble 26 intervenants composés en équipes de 4 et en binômes ayant les matériels correspondants'),
+(15, 28, '1 chef de dispositif + 2 LAT + 3 postes de secours (4 à 12 personnes par postes au maximum) comprenant  dans l''ensemble 28 intervenants composés en équipes de 4 et en binômes ayant les matériels correspondants'),
+(16, 30, '1 chef de dispositif + 2 LAT + 3 postes de secours (4 à 12 personnes par postes au maximum) comprenant  dans l''ensemble 30 intervenants composés en équipes de 4 et en binômes ayant les matériels correspondants'),
+(17, 32, '1 chef de dispositif + 2 LAT + 3 postes de secours (4 à 12 personnes par postes au maximum) comprenant  dans l''ensemble 32 intervenants composés en équipes de 4 et en binômes ayant les matériels correspondants'),
+(18, 34, '1 chef de dispositif + 2 LAT + 3 postes de secours (4 à 12 personnes par postes au maximum) comprenant  dans l''ensemble 34 intervenants composés en équipes de 4 et en binômes ayant les matériels correspondants'),
+(19, 36, '1 chef de dispositif + 2 LAT + 3 postes de secours (4 à 12 personnes par postes au maximum) comprenant  dans l''ensemble 36 intervenants composés en équipes de 4 et en binômes ayant les matériels correspondants'),
+(20, 38, '1 chef de dispositif + 2 LAT + 1 chef de secteur par secteur créé, chaque secteur comprend 1 à 3 poste de secours (4 à 12 personnes par postes au maximum) comprenant  dans l''ensemble 36 intervenants composés en équipes de 4 et en binômes ayant les matériels correspondants');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `operation_types`
+--
+
+CREATE TABLE IF NOT EXISTS `operation_types` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(250) DEFAULT NULL,
+  `min` int(11) DEFAULT NULL,
+  `max` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
+
+--
+-- Contenu de la table `operation_types`
+--
+
+INSERT INTO `operation_types` (`id`, `title`, `min`, `max`) VALUES
+(1, 'AUCUN DISPOSITIF', -1000000, 0),
+(2, 'POINT D''ALERTE ET DE PREMIERS SECOURS', 0, 2),
+(3, 'DPS - PETITE ENVERGURE', 2, 12),
+(4, 'DPS - MOYENNE ENVERGURE', 12, 36),
+(5, 'DPS - GRANDE ENVERGURE', 36, 1000000);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `orders`
+--
+
+CREATE TABLE IF NOT EXISTS `orders` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `material_id` int(11) NOT NULL,
+  `quantity` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
+
+--
+-- Contenu de la table `orders`
+--
+
+INSERT INTO `orders` (`id`, `material_id`, `quantity`) VALUES
+(7, 156, 200),
+(8, 163, 2),
+(9, 163, 2),
+(10, 163, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `orders_supplies`
+--
+
+CREATE TABLE IF NOT EXISTS `orders_supplies` (
+  `order_id` int(11) NOT NULL DEFAULT '0',
+  `supply_id` int(11) NOT NULL DEFAULT '0',
+  `quantity` int(11) DEFAULT '1',
+  PRIMARY KEY (`order_id`,`supply_id`),
+  KEY `supply_id` (`supply_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `organizations`
+--
+
+CREATE TABLE IF NOT EXISTS `organizations` (
+  `id` int(11) NOT NULL,
+  `title` varchar(250) DEFAULT NULL,
+  `address1` varchar(200) DEFAULT NULL,
+  `address2` varchar(200) DEFAULT NULL,
+  `city_id` int(11) DEFAULT NULL,
+  `email` varchar(200) DEFAULT NULL,
+  `phone` varchar(14) DEFAULT NULL,
+  `cellphone` varchar(14) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `permissions`
+--
+
+CREATE TABLE IF NOT EXISTS `permissions` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `name` (`name`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `providers`
+--
+
+CREATE TABLE IF NOT EXISTS `providers` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `address` text,
+  `zipcode` varchar(5) DEFAULT NULL,
+  `city` varchar(100) DEFAULT NULL,
+  `phone` varchar(14) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `descritpion` text,
+  `website` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `name` (`name`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `providers_supplies`
+--
+
+CREATE TABLE IF NOT EXISTS `providers_supplies` (
+  `provider_id` int(11) NOT NULL DEFAULT '0',
+  `supply_id` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`provider_id`,`supply_id`),
+  KEY `supply_id` (`supply_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `regions`
 --
 
-CREATE TABLE `regions` (
-  `id` tinyint(4) NOT NULL,
-  `region` varchar(50) NOT NULL DEFAULT ''
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+CREATE TABLE IF NOT EXISTS `regions` (
+  `id` tinyint(4) NOT NULL AUTO_INCREMENT,
+  `region` varchar(50) NOT NULL DEFAULT '',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=23 ;
 
 --
 -- Contenu de la table `regions`
@@ -36933,47 +38043,427 @@ INSERT INTO `regions` (`id`, `region`) VALUES
 (21, 'Provence-Alpes-Côte-d''Azur'),
 (22, 'Rhône-Alpes');
 
---
--- Index pour les tables exportées
---
+-- --------------------------------------------------------
 
 --
--- Index pour la table `cities`
---
-ALTER TABLE `cities`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `ville_departement` (`dpt_id`),
-  ADD KEY `ville_nom_reel` (`city`),
-  ADD KEY `ville_code_postal` (`zipcode`),
-  ADD KEY `ville_longitude_latitude_deg` (`longitude`,`latitude`);
-
---
--- Index pour la table `departments`
---
-ALTER TABLE `departments`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `id_region` (`region_id`);
-
---
--- Index pour la table `regions`
---
-ALTER TABLE `regions`
-  ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT pour les tables exportées
+-- Structure de la table `roles`
 --
 
+CREATE TABLE IF NOT EXISTS `roles` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `name` (`name`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
 --
--- AUTO_INCREMENT pour la table `cities`
+-- Structure de la table `skills`
 --
-ALTER TABLE `cities`
-  MODIFY `id` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36831;
+
+CREATE TABLE IF NOT EXISTS `skills` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) DEFAULT NULL,
+  `category` varchar(50) DEFAULT NULL,
+  `validity_date` int(6) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+
 --
--- AUTO_INCREMENT pour la table `regions`
+-- Contenu de la table `skills`
 --
-ALTER TABLE `regions`
-  MODIFY `id` tinyint(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+
+INSERT INTO `skills` (`id`, `name`, `category`, `validity_date`) VALUES
+(1, 'Sauvetage en mer', 'Secourisme', 365),
+(2, 'Permis B', 'Conduite', 3650);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `skills_users`
+--
+
+CREATE TABLE IF NOT EXISTS `skills_users` (
+  `skill_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `date_acquired` date NOT NULL,
+  `validity_date` date NOT NULL,
+  PRIMARY KEY (`skill_id`,`user_id`),
+  KEY `user_id` (`user_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Contenu de la table `skills_users`
+--
+
+INSERT INTO `skills_users` (`skill_id`, `user_id`, `date_acquired`, `validity_date`) VALUES
+(1, 3, '2016-09-15', '2017-09-15'),
+(2, 3, '2016-09-15', '2026-09-13');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `supplies`
+--
+
+CREATE TABLE IF NOT EXISTS `supplies` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `supply_types`
+--
+
+CREATE TABLE IF NOT EXISTS `supply_types` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `code` varchar(12) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `measure_unit` char(2) NOT NULL,
+  `quantity_per_unit` float NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=75 ;
+
+--
+-- Contenu de la table `supply_types`
+--
+
+INSERT INTO `supply_types` (`id`, `code`, `name`, `measure_unit`, `quantity_per_unit`) VALUES
+(1, 'ALIMENTATION', 'Eau', 'cl', 150),
+(2, 'ALIMENTATION', 'Eau', 'li', 10),
+(3, 'ALIMENTATION', 'Soupe', 'li', 1),
+(4, 'ALIMENTATION', 'Sucre en morceaux', 'kg', 1),
+(5, 'ALIMENTATION', 'dosette café soluble', 'un', 1),
+(6, 'ALIMENTATION', 'dosette boisson chocolatée', 'un', 1),
+(7, 'ALIMENTATION', 'gobelet', 'un', 1),
+(8, 'ALIMENTATION', 'cuillère en plastique / touillette', 'un', 1),
+(9, 'PHARMACIE', 'Dosiseptine', 'ml', 10),
+(10, 'PHARMACIE', 'Chlorure de sodium / sérum physiologique', 'ml', 10),
+(11, 'PHARMACIE', 'Dakin stabilisé', 'ml', 10),
+(12, 'PHARMACIE', 'Compresses stériles', 'un', 1),
+(13, 'PHARMACIE', 'Collier cervical adulte', 'un', 1),
+(14, 'PHARMACIE', 'Collier cervical enfant', 'un', 1),
+(15, 'PHARMACIE', 'Masque haute concentration adulte', 'un', 1),
+(16, 'PHARMACIE', 'Masque haute concentration enfant', 'un', 1),
+(17, 'PHARMACIE', 'gants à usage unique S', 'un', 100),
+(18, 'PHARMACIE', 'gants à usage unique M', 'un', 100),
+(19, 'PHARMACIE', 'gants à usage unique L', 'un', 100),
+(20, 'PHARMACIE', 'gants à usage unique XL', 'un', 100),
+(21, 'PHARMACIE', 'solution hydro-alcoolique', 'cl', 1),
+(22, 'VEHICULES', 'Essence groupe électrogène', 'li', 10),
+(23, 'VEHICULES', 'Essence groupe électrogène', 'li', 20),
+(24, 'VEHICULES', 'Gasoil groupe électrogène', 'li', 20),
+(25, 'VEHICULES', 'Huile moteur', 'li', 5),
+(26, 'VEHICULES', 'Liquide lave glace', 'li', 5),
+(27, 'VEHICULES', 'Liquide de freins', 'li', 5),
+(28, 'ENTRETIEN', 'Désinfectant surface', 'cl', 50),
+(29, 'ENTRETIEN', 'Alkidiol', 'cl', 50),
+(30, 'ENTRETIEN', 'Solution hydro-alcoolique', 'cl', 50),
+(31, 'ENTRETIEN', 'Spray désinfectant de surface', 'cl', 50),
+(32, 'ENTRETIEN', 'Liquide vaisselle', 'cl', 100),
+(33, 'ENTRETIEN', 'Papier toilette rouleau', 'un', 1),
+(34, 'BUREAU', 'Ramette Papier A4', 'un', 500),
+(35, 'BUREAU', 'Cartouche encre pour imprimante', 'un', 1),
+(36, 'BUREAU', 'main courante', 'un', 1),
+(37, 'BUREAU', 'fiche d''intervention', 'un', 1),
+(38, 'BUREAU', 'bracelet d''identification adulte', 'un', 1),
+(39, 'BUREAU', 'bracelet d''identification enfant', 'un', 1),
+(40, 'PHARMACIE', 'protection de sonde pour thermomètre tympanique', 'un', 1),
+(41, 'PHARMACIE', 'coussin Hémostatique d''urgence', 'un', 1),
+(42, 'PHARMACIE', 'antiseptique', 'ml', 5),
+(43, 'PHARMACIE', 'champs stérile', 'un', 1),
+(44, 'PHARMACIE', 'bande extensible', 'un', 1),
+(45, 'PHARMACIE', 'pansements pré-découpés', 'un', 1),
+(46, 'PHARMACIE', 'sparadrap rouleau', 'un', 1),
+(47, 'PHARMACIE', 'pansement absorbant, américain', 'un', 1),
+(48, 'PHARMACIE', 'gants stériles', 'un', 1),
+(49, 'PHARMACIE', 'compresses brulure', 'un', 1),
+(50, 'PHARMACIE', 'couverture de survie', 'un', 1),
+(51, 'PHARMACIE', 'couverture de survie stérile', 'un', 1),
+(52, 'PHARMACIE', 'écharpe triangulaire', 'un', 1),
+(53, 'PHARMACIE', 'poche de froid', 'un', 1),
+(54, 'PHARMACIE', 'tuyau patient pour aspirateur de mucosités', 'un', 1),
+(55, 'PHARMACIE', 'masque insufflateur adulte', 'un', 1),
+(56, 'PHARMACIE', 'masque insufflateur enfant', 'un', 1),
+(57, 'PHARMACIE', 'masque insufflateur nourisson', 'un', 1),
+(58, 'PHARMACIE', 'tubulure à oxygène', 'un', 1),
+(59, 'PHARMACIE', 'raccord biconique', 'un', 1),
+(60, 'PHARMACIE', 'sonde d''aspiration adulte', 'un', 1),
+(61, 'PHARMACIE', 'sonde d''aspiration pédiatrique', 'un', 1),
+(62, 'PHARMACIE', 'stop vide', 'un', 1),
+(63, 'PHARMACIE', 'canule de Guédel taille 00', 'un', 1),
+(64, 'PHARMACIE', 'canule de Guédel taille 0', 'un', 1),
+(65, 'PHARMACIE', 'canule de Guédel taille 1', 'un', 1),
+(66, 'PHARMACIE', 'canule de Guédel taille 2', 'un', 1),
+(67, 'PHARMACIE', 'canule de Guédel taille 3', 'un', 1),
+(68, 'PHARMACIE', 'canule de Guédel taille 4', 'un', 1),
+(69, 'PHARMACIE', 'canule de Guédel taille 5', 'un', 1),
+(70, 'PHARMACIE', 'masque FFP2', 'un', 1),
+(71, 'PHARMACIE', 'masque chirurgical', 'un', 1),
+(72, 'PHARMACIE', 'drap d''hôpital', 'un', 1),
+(73, 'VEHICULES', 'Gasoil', 'li', 1),
+(74, 'VEHICULES', 'Essence SP', 'li', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `teams`
+--
+
+CREATE TABLE IF NOT EXISTS `teams` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `description` text,
+  `position_adresse` varchar(255) DEFAULT NULL,
+  `radio_indicatif` varchar(255) DEFAULT NULL,
+  `radio_frequence` varchar(255) DEFAULT NULL,
+  `latitude` float DEFAULT NULL,
+  `longitude` float DEFAULT NULL,
+  `horaires` varchar(255) DEFAULT NULL,
+  `consignes` text,
+  `prix` float DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `name` (`name`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=71 ;
+
+--
+-- Contenu de la table `teams`
+--
+
+INSERT INTO `teams` (`id`, `name`, `description`, `position_adresse`, `radio_indicatif`, `radio_frequence`, `latitude`, `longitude`, `horaires`, `consignes`, `prix`) VALUES
+(43, 'wfc', 'sef', 'sef', 'sef', 'sef', 27.4559, -81.3438, 'sefes', 'sef', 1),
+(41, 'fesf', 'sef', 'sef', 'sefs', 'sef', 27.4559, -81.3438, 'sef', 'sef', NULL),
+(42, 'adz', 'azd', 'azd', 'azd', 'azd', 31.9035, 54.2833, 'azd', 'azd', 2),
+(40, 'qzd', 'qzd', 'qzd', 'qzd', 'qzd', NULL, NULL, 'qzd', 'qzd', 1),
+(39, 'xwdevf', 'sef', 'sef', 'sef', 'sef', 27.4559, -81.3438, 'sefsef', 'sef', 2),
+(37, 'qef', 'sef', 'sef', 'sef', 'sef', 27.4559, -81.3438, 'sef', 'seff', 123),
+(38, 'sefse', 'sef', 'sef', 'sef', 'sef', 27.4559, -81.3438, 'sef', 'sef', 12),
+(44, 'segfsfe', 'sefsef', 'sef', 'sef', 'sef', 27.4559, -81.3438, 'sefsef', 'sef', 3),
+(45, 'qezcf', 'qdqz', 'qzdqz', 'zcq', 'qzd', NULL, NULL, 'qzdqz', 'qzd', 2),
+(46, 'svesf', 'sdcvsef', 'sef', 'secv', 'sev', 27.4559, -81.3438, 'sev', 'sev', 2),
+(47, 'drgdfbv', 'drgdf', 'drg', 'dgr', 'gdfgrdg', 66.0684, -162.767, 'dgrg', 'drg', 2),
+(48, 'gsdfgs', 'dwserf', 'sezf', 'serfg', 'seg', 48.3357, -0.562637, 'sefg', 'srg', 2),
+(49, 'test temporel tasvu', 'on test ici', 'sef', 'sefs', 'sef', 27.4559, -81.3438, 'sfe', 'sef', 1),
+(50, 'la team des alouettes', 'yhouu', 'magdeleine 88000 Epinal', 'zdf', 'zef', 48.1884, 6.43988, 'zef', 'zef', 2),
+(51, 'la team des boeufs', 'mulet obligatoire', 'charenton sur saone', 'radio', '234', 29.8816, -91.5251, 'pas trop tôt heing', 'moyen de déplacement recommandé : voiture tunée', 3),
+(70, 'fesf-copy', 'sef', 'sef', 'sefs', 'sef', 27.4559, -81.3438, 'sef', 'sef', NULL),
+(69, 'wfc-copy-copy', 'sef', 'sef', 'sef', 'sef', 27.4559, -81.3438, 'sefes', 'sef', 1),
+(68, 'wfc-copy', 'sef', 'sef', 'sef', 'sef', 27.4559, -81.3438, 'sefes', 'sef', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `teams_users`
+--
+
+CREATE TABLE IF NOT EXISTS `teams_users` (
+  `team_id` int(11) NOT NULL DEFAULT '0',
+  `user_id` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`team_id`,`user_id`),
+  KEY `user_id` (`user_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Contenu de la table `teams_users`
+--
+
+INSERT INTO `teams_users` (`team_id`, `user_id`) VALUES
+(48, 2),
+(48, 3),
+(48, 15),
+(49, 3),
+(49, 14),
+(51, 4);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `teams_vehicles`
+--
+
+CREATE TABLE IF NOT EXISTS `teams_vehicles` (
+  `team_id` int(11) NOT NULL DEFAULT '0',
+  `vehicle_id` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`team_id`,`vehicle_id`),
+  KEY `vehicle_id` (`vehicle_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Contenu de la table `teams_vehicles`
+--
+
+INSERT INTO `teams_vehicles` (`team_id`, `vehicle_id`) VALUES
+(48, 16),
+(48, 67);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `users`
+--
+
+CREATE TABLE IF NOT EXISTS `users` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `firstname` varchar(100) NOT NULL,
+  `lastname` varchar(100) NOT NULL,
+  `birthname` varchar(100) DEFAULT NULL,
+  `email` varchar(255) NOT NULL,
+  `login` varchar(100) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `phone` varchar(14) DEFAULT NULL,
+  `cellphone` varchar(14) DEFAULT NULL,
+  `workphone` varchar(14) DEFAULT NULL,
+  `address` varchar(255) NOT NULL,
+  `address_complement` varchar(255) NOT NULL,
+  `zipcode` varchar(5) DEFAULT NULL,
+  `city_id` int(11) DEFAULT NULL,
+  `birthday` date DEFAULT NULL,
+  `birthplace` varchar(100) DEFAULT NULL,
+  `skype` varchar(100) DEFAULT NULL,
+  `is_active` tinyint(1) DEFAULT NULL,
+  `external` tinyint(1) DEFAULT NULL,
+  `created` date DEFAULT NULL,
+  `modified` date DEFAULT NULL,
+  `connected` date DEFAULT NULL,
+  `personne_referente` text NOT NULL,
+  `tuteur_legal` text NOT NULL,
+  `alerte` int(11) NOT NULL,
+  `is_provider` tinyint(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `email` (`email`),
+  UNIQUE KEY `login` (`login`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=47 ;
+
+--
+-- Contenu de la table `users`
+--
+
+INSERT INTO `users` (`id`, `firstname`, `lastname`, `birthname`, `email`, `login`, `password`, `phone`, `cellphone`, `workphone`, `address`, `address_complement`, `zipcode`, `city_id`, `birthday`, `birthplace`, `skype`, `is_active`, `external`, `created`, `modified`, `connected`, `personne_referente`, `tuteur_legal`, `alerte`, `is_provider`) VALUES
+(1, 'Maillard', 'Florent', '', 'florent.maillard.pro@gmail.com', 'admin', '$2y$10$eL4kkR6rtnADpKIU0zQyPOp3vuDraNznRHRqfCNsCCH5ww5rr9/ya', '0611214341', '', '', 'rue pakonnue', 'rue pakonnu', '88000', 35600, '1985-03-26', '', '', 1, 0, '2016-08-30', '2016-09-20', NULL, '', '', 0, 0),
+(2, 'Hel', 'Nicolas', '', 'znirgal@gmail.com', 'nirgal', '$2y$10$IS67pIEg25UG6lN556WDleoEGpbAXBE2k7bYYtRt/4y7BaOI2SMua', '', '', NULL, '', '', '', 35006, '2006-09-01', '', '', 0, NULL, '2016-08-31', '2016-08-31', NULL, '', '', 0, 0),
+(3, 'Prevot', 'Gwenael', '', 'prevotgwenael@gmail.com', 'frexwimsn', '$2y$10$zBLH6jfO99bjjNEif7qmquN0Ms2E7eE2we8BFrs2iODm7KKhxRbBi', '', '', '', 'rue tabaga', 'bis', '88000', 35001, NULL, '', '', 0, NULL, '2016-08-31', '2016-09-22', NULL, '', '', 0, 0),
+(4, 'Perrin', 'Olivier', '', 'perrinolivier88@gmail.com', 'kaki88', '$2y$10$8Wn4cnW9eqsdrNfqPRbxM.YuOw/JUE4GbhYUHTyvskiIE1vIxtBta', '0329634397', '0608857023', '0329376014', '44 rue de la hadrange', 'complement', '88600', 1200, '2011-11-04', 'gerardmer', '', 1, 0, '2016-08-31', '2016-09-12', NULL, '', '', 0, 0),
+(12, 'Pual', 'Last', NULL, 'test@localhost.fr', 'ProvidCorp', '$2y$10$aw8kVK7dUWZZfMgXbiIYDuSR9ySe/sQVnhqRJ0kBANvRLbeNVUtSy', NULL, NULL, '', 'rue pakonnu', 'a', '88000', 15, '1984-02-18', NULL, NULL, NULL, NULL, '2016-09-23', '2016-09-23', NULL, ' ', ' ', 0, 1),
+(13, 'Jean', 'Renard', NULL, 'jerenard@localhost.fr', 'Chenapan', '$2y$10$7AqfgJZzt7kqEeMpXuh.tOrmmk/KIFY1xoFxtTXUC5dj3OznTJ/de', '0636656565', NULL, '0808080808', 'rue pakonnu', 'rzf', '88000', 9, '1985-07-15', NULL, NULL, NULL, NULL, '2016-09-23', '2016-09-23', NULL, ' ', ' ', 0, 1),
+(14, 'Yvon', 'Wong', NULL, 'ywg@test.fr', 'Ywg', '$2y$10$g1xXFZ/IEA3v65dDf7wa5ucThTQN1rmmvM20uJmUK8Rya9NZnupTS', '0636656565', NULL, '0636656565', 'rue des rues', '56', '88000', 10, '1986-10-13', NULL, NULL, NULL, 1, '2016-09-23', '2016-09-23', NULL, ' ', ' ', 0, 0),
+(15, 'Jean', 'test', '', 'zechief@chief.fr', 'Chief', '$2y$10$U.e.3DkSyMu/5isOff0cF.Xjx3EFIuVGLAN0oqvH8G1eafizA1T/q', '0611214341', '0636656565', '0808080808', 'rue de la magdeleine', '54', '88000', 19, '1984-03-18', 'Epinal', 'nini', NULL, NULL, '2016-09-23', '2016-09-23', NULL, 'Jean René', 'Jean René', 0, 0),
+(16, 'Roussel', 'Jean-Christophe', 'Roussel', 'applications@protectioncivile-vosges.org', 'adminProtec', '$2y$10$SmNv44ufOEf7UIQQx.P/puAc2hskaW0GFHT6QT715zfAey.iMfsuG', '0687505196', '0687505196', '0687505196', '8 route de Bellefontaine', '-', '88220', 130, '1982-07-18', 'Epinal', '', NULL, NULL, '2016-10-02', '2016-10-02', NULL, 'Personne', 'Personne', 0, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `users_vehicles`
+--
+
+CREATE TABLE IF NOT EXISTS `users_vehicles` (
+  `user_id` int(11) NOT NULL DEFAULT '0',
+  `vehicle_id` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`vehicle_id`,`user_id`),
+  KEY `user_id` (`user_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `vehicles`
+--
+
+CREATE TABLE IF NOT EXISTS `vehicles` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `matriculation` varchar(255) DEFAULT NULL,
+  `number_kilometer` int(11) DEFAULT '0',
+  `snow` tinyint(1) DEFAULT '0',
+  `air_conditionner` tinyint(1) DEFAULT '0',
+  `vehicle_type_id` int(11) DEFAULT NULL,
+  `vehicle_model_id` int(11) DEFAULT NULL,
+  `bought` date DEFAULT NULL,
+  `end_warranty` date DEFAULT NULL,
+  `next_revision` date DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=72 ;
+
+--
+-- Contenu de la table `vehicles`
+--
+
+INSERT INTO `vehicles` (`id`, `matriculation`, `number_kilometer`, `snow`, `air_conditionner`, `vehicle_type_id`, `vehicle_model_id`, `bought`, `end_warranty`, `next_revision`) VALUES
+(17, 'AK-123-WA', 2000, 1, 0, 18, NULL, '2011-09-01', '2016-09-30', '2017-03-29'),
+(16, 'EE-747-WN', 5000, 0, 0, 13, NULL, '2011-09-02', '2018-09-08', '2017-03-29'),
+(66, 'AK-123-WA', 1, 0, 0, 1, NULL, '2011-09-13', '2018-09-03', '2017-03-02'),
+(67, 'AQ-989-ZA', 12008, 1, 1, 2, NULL, '2011-09-02', '2018-09-03', '2017-03-29'),
+(68, 'EE-747-WN', 5000, 0, 1, 8, NULL, '2011-09-10', '2018-09-15', '2017-03-30'),
+(69, 'SD-654-RR', 23233, 0, 1, 21, NULL, '2011-09-03', '2018-09-08', '2017-03-24');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `vehicle_models`
+--
+
+CREATE TABLE IF NOT EXISTS `vehicle_models` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `label` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `name` (`name`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `vehicle_types`
+--
+
+CREATE TABLE IF NOT EXISTS `vehicle_types` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `code` varchar(10) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `type` varchar(15) NOT NULL,
+  `picture` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=32 ;
+
+--
+-- Contenu de la table `vehicle_types`
+--
+
+INSERT INTO `vehicle_types` (`id`, `code`, `name`, `type`, `picture`) VALUES
+(1, 'ASSU', 'Ambulance de secours et de soins d''urgence', 'SECOURS', 'vehicules/VSAV.png'),
+(2, 'CCFL', 'Camion citerne Forêt léger', 'FEU', 'vehicules/CCF.png'),
+(3, 'CCFM', 'Camion citerne Forêt moyen', 'FEU', 'vehicules/CCF.png'),
+(4, 'CCFS', 'Camion citerne Forêt super', 'FEU', 'vehicules/CCGC.png'),
+(5, 'CCGC', 'Camion citerne grande capacité', 'FEU', 'vehicules/CCGC.png'),
+(6, 'CTU', 'Camionnette tous usages', 'DIVERS', 'vehicules/VTU.png'),
+(7, 'EPA', 'Echelle pivotante automatique', 'FEU', 'vehicules/EPA.png'),
+(8, 'ERS', 'Embarcation de Reconnaissance et de Sauvetage', 'SECOURS', 'vehicules/BOAT1.png'),
+(9, 'FPT', 'Fourgon pompe tonne', 'FEU', 'vehicules/FPT.png'),
+(10, 'FPTL', 'Fourgon pompe tonne léger', 'FEU', 'vehicules/FPT.png'),
+(11, 'FPTLHR', 'Fourgon pompe tonne léger hors route', 'FEU', 'vehicules/FMOGP.png'),
+(12, 'GER', 'Groupe Electrogène Remorquable', 'DIVERS', NULL),
+(13, 'MOTO', 'Motocyclette', 'DIVERS', 'vehicules/MOTO.png'),
+(14, 'MPS', 'Moto de premiers secours', 'SECOURS', 'vehicules/MOTO.png'),
+(15, 'PCM', 'Poste de Commandement Mobile', 'DIVERS', 'vehicules/PC.png'),
+(16, 'QUAD', 'Véhicule quad', 'DIVERS', 'vehicules/QUAD.png'),
+(17, 'REM', 'Remorque', 'DIVERS', NULL),
+(18, 'VCYN', 'Véhicule Cynotechnique', 'DIVERS', 'vehicules/CYNO.png'),
+(19, 'VELO', 'Vélo tout terrain', 'DIVERS', 'vehicules/VELO.png'),
+(20, 'VL', 'Véhicule léger', 'DIVERS', 'vehicules/VL.png'),
+(21, 'VLC', 'Véhicule Léger de Commandement', 'DIVERS', 'vehicules/VLCG.png'),
+(22, 'VLHR', 'Véhicule léger hors route', 'DIVERS', 'vehicules/VLHR.png'),
+(23, 'VPI', 'Véhicule polyvalent d''intervention', 'DIVERS', 'vehicules/VPI.png'),
+(24, 'VPS', 'Véhicule de premier secours', 'SECOURS', 'vehicules/AMBULANCE1.png'),
+(25, 'VSAV', 'Véhicule de secours aux blessés', 'SECOURS', 'vehicules/VSAV.png'),
+(26, 'VSR', 'Véhicule de secours routier', 'SECOURS', 'vehicules/VSR.png'),
+(27, 'VTD', 'Véhicule technique déblaiement', 'DIVERS', 'vehicules/VSD.png'),
+(28, 'VTH', 'Véhicule technique hébergement', 'LOGISTIQUE', 'vehicules/CMIC.png'),
+(29, 'VTI', 'Véhicule technique soutien intendance', 'LOGISTIQUE', 'vehicules/VIRT.png'),
+(30, 'VTP', 'Véhicule de transport de personnel', 'DIVERS', 'vehicules/BUS.png'),
+(31, 'VTU', 'Véhicule tous usages', 'DIVERS', 'vehicules/VTU.png');
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

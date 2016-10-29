@@ -45,7 +45,7 @@ Router::scope('/', function (RouteBuilder $routes) {
         'user_id' => '[0-9]+'
     ]);
     $routes->connect('/deconnexion',['controller' => 'Users','action' => 'logout']);
- //   __________________________________________________________________ Casernes
+ //   __________________________________________________________________Vue des Casernes
     $routes->connect(
         '/casernes/liste',
         ['controller' => 'Barracks', 'action' => 'index']
@@ -63,8 +63,54 @@ Router::scope('/', function (RouteBuilder $routes) {
         ['controller' => 'Barracks', 'action' => 'carte']
     );
     $routes->connect(
+        '/caserne/ajouter',
+        ['controller' => 'Barracks', 'action' => 'add']
+    );
+
+    $routes->connect(
         '/caserne/:id-:name',
         ['controller' => 'Barracks', 'action' => 'view'],
+        [
+            'pass' => ['id','name'],
+            'id' => '[0-9]+',
+        ]
+    );
+    $routes->connect(
+        '/caserne/:id-:name/edition',
+        ['controller' => 'Barracks', 'action' => 'edit'],
+        [
+            'pass' => ['id','name'],
+            'id' => '[0-9]+',
+        ]
+    );
+//   __________________________________________________________________ Gestion des casernes
+    $routes->connect(
+        '/gestion/caserne/:id-:name/personnel',
+        ['controller' => 'Barracks', 'action' => 'gestionuser'],
+        [
+            'pass' => ['id','name'],
+            'id' => '[0-9]+',
+        ]
+    );
+    $routes->connect(
+        '/gestion/caserne/:id-:name/evenements',
+        ['controller' => 'Barracks', 'action' => 'gestionevent'],
+        [
+            'pass' => ['id','name'],
+            'id' => '[0-9]+',
+        ]
+    );
+    $routes->connect(
+        '/gestion/caserne/:id-:name/vehicules',
+        ['controller' => 'Barracks', 'action' => 'gestionvehi'],
+        [
+            'pass' => ['id','name'],
+            'id' => '[0-9]+',
+        ]
+    );
+    $routes->connect(
+        '/gestion/caserne/:id-:name/materiel',
+        ['controller' => 'Barracks', 'action' => 'gestionmat'],
         [
             'pass' => ['id','name'],
             'id' => '[0-9]+',
