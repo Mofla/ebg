@@ -29,7 +29,7 @@
                         echo $user->firstname.' '.$user->lastname;
                         ?>
                     </td>
-                    <td><?=  $this->Html->link(__(h($message->subject)), ['action' => 'view', $message->id]) ?></td>
+                    <td><?=  $this->Html->link(__(h($message->subject)), ['action' => 'view', $message->id, strtolower(str_replace(' ', '-', $message->subject))]) ?></td>
                 </tr>
                 <?php endforeach; ?>
                 </tbody>

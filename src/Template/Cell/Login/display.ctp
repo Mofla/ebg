@@ -14,13 +14,14 @@ else{
 <?php
 if($isConnected) {
     ?>
-        <li><a href="<?= $this->Url->build(['controller' => 'Users','action' => 'view' ,$myId]); ?>"><span class="glyphicon glyphicon-user"></span> Profil</a></li>
-    <li><a href="<?= $this->Url->build(['controller' => 'Calendar','action' => 'add' ,$myId]); ?>"><i class="fa fa-calendar-check-o" aria-hidden="true"></i>
+        <li><a href="<?= $this->Url->build(['controller' => 'Users','action' => 'view' ,$myId, 'prefix' => false]); ?>"><span class="glyphicon glyphicon-user"></span> Profil</a></li>
+    <li><a href="<?= $this->Url->build(['controller' => 'Calendar','action' => 'add', 'prefix' => 'calendrier' ]); ?>"><i class="fa fa-calendar-check-o" aria-hidden="true"></i>
         Mes disponibilités</a></li>
 
     <li><a href="#"><span class="glyphicon glyphicon-cog"></span> Paramètres</a></li>
         <li class="divider"></li>
-        <li><a href="<?= $this->Url->build(['controller' => 'Users','action' => 'logout']); ?>"><span class="glyphicon glyphicon-off"></span> Deconnexion</a></li>
+        <li><a href="<?= $this->Url->build(['controller' => 'Users','action' => 'logout',
+        'prefix' => false]); ?>"><span class="glyphicon glyphicon-off"></span> Deconnexion</a></li>
     <?php
 }
 else{
