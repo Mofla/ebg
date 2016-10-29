@@ -1,5 +1,5 @@
 <?php
-namespace App\Controller;
+namespace App\Controller\Messagerie;
 
 use App\Controller\AppController;
 

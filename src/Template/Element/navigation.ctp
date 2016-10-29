@@ -105,10 +105,10 @@
 
 
 
-                    <li><a href="<?= $this->Url->build(['controller' => 'Barracks','action' => 'index' ]); ?>"><i class="fa fa-ambulance" aria-hidden="true"></i>
+                    <li><a href="<?= $this->Url->build(['controller' => 'Barracks','action' => 'index' , 'prefix' => false ]); ?>"><i class="fa fa-ambulance" aria-hidden="true"></i>
                         Casernes</a></li>
 
-                <li><a href="<?= $this->Url->build(['controller' => 'Calendar','action' => 'index' ]); ?>"><span class="glyphicon glyphicon-calendar"></span> Calendrier</a></li>
+                <li><a href="<?= $this->Url->build(['controller' => 'Calendar','action' => 'index', 'prefix' => 'calendrier' ]); ?>"><span class="glyphicon glyphicon-calendar"></span> Calendrier</a></li>
 
             </ul>
 
@@ -127,9 +127,9 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon-envelope"></span></span></a>
                     <ul class="dropdown-menu" role="menu">
-                        <li><a href="<?= $this->Url->build(['controller' => 'Messages','action' => 'send' ]); ?>"><span class="glyphicon glyphicon-pencil"></span> Ecrire un Mail</a></li>
-                        <li><a href="<?= $this->Url->build(['controller' => 'Messages','action' => 'index' ]); ?>"><span class="glyphicon glyphicon-inbox"></span> Reception </a></li>
-                        <li><a href="<?= $this->Url->build(['controller' => 'Messages','action' => 'dispatch' ]); ?>"><span class="glyphicon glyphicon-send"></span> Envoyé</a></li>
+                        <li><a href="<?= $this->Url->build(['controller' => 'Messages','action' => 'send' , 'prefix' => 'messagerie' ]); ?>"><span class="glyphicon glyphicon-pencil"></span> Ecrire un Mail</a></li>
+                        <li><a href="<?= $this->Url->build(['controller' => 'Messages','action' => 'index' , 'prefix' => 'messagerie']); ?>"><span class="glyphicon glyphicon-inbox"></span> Reception </a></li>
+                        <li><a href="<?= $this->Url->build(['controller' => 'Messages','action' => 'dispatch' , 'prefix' => 'messagerie' ]); ?>"><span class="glyphicon glyphicon-send"></span> Envoyé</a></li>
                         <li class="divider"></li>
                         <li><a href="#"><span class="glyphicon glyphicon-warning-sign"></span> Archivé</a></li>
                         <li><a href="#"><span class="glyphicon glyphicon-trash"></span> Corbeille</a></li>

@@ -207,7 +207,7 @@ class BarracksController extends AppController
      * @return \Cake\Network\Response|null
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
-    public function view($id = null)
+    public function view($id = null , $name = null)
     {
         $this->loadModel('MaterialStocks');
         $barrack = $this->Barracks->get($id, [

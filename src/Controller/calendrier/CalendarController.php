@@ -1,5 +1,5 @@
 <?php
-namespace App\Controller;
+namespace App\Controller\Calendrier;
 
 use App\Controller\AppController;
 use Cake\ORM\TableRegistry;

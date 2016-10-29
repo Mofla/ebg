@@ -1,5 +1,5 @@
 <?php
-namespace App\Controller;
+namespace App\Controller\Messagerie;
 
 use App\Controller\AppController;
 use Cake\ORM\TableRegistry;
@@ -25,7 +25,7 @@ class MessagesController extends AppController
     }
 
 // affiche le message selectionné
-    public function view($id = null)
+    public function view($id = null , $subject = null)
     {
         $users = TableRegistry::get('users');
         $user= $this->Auth->user('id');

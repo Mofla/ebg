@@ -282,9 +282,9 @@ var date = moment(start).format();
         $.ajax({
             type:'post',
             data: 'title=' + myArray,
-            url: '../save',
+            url: "<?= $this->Url->build(['controller' => 'Calendar','action' => 'save', 'prefix' => 'calendrier' ]); ?>",
             success:function(){
-              $('#savedate').load('../save');
+              $('#savedate').load("<?= $this->Url->build(['controller' => 'Calendar','action' => 'save', 'prefix' => 'calendrier' ]); ?>");
             }
         });
     });
