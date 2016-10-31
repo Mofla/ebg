@@ -154,6 +154,10 @@ class MessagesController extends AppController
                 ->first();
             $sendto = null;
         }
+        if(empty($id)){
+            $sendtouser = null;
+            $sendto = null;
+        }
         
         if ($this->request->is('post')) {
             $this->request->data['from_user']= $user;
@@ -235,7 +239,12 @@ class MessagesController extends AppController
         foreach ($listusers as $listuser) {
             array_push($lists,'{value:"'.$listuser->id.'",label:"'.$listuser->firstname.' '.$listuser->lastname.'"},');
         }
-        $this->set(compact('lists','user','message','sendto','sendtouser','type'));
+        $listbarracks = $this->Barracks->find();
+        $listsk = [];
+        foreach ($listbarracks as $listbarrack) {
+            array_push($listsk,'{value:"k'.$listbarrack->id.'",label:"'.$listbarrack->name.'"},');
+        }
+        $this->set(compact('lists','listsk','user','message','sendto','sendtouser','type'));
         $this->set('_serialize', ['message']);
     }
 

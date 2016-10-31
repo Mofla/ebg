@@ -5,7 +5,7 @@
 
 
     <div class="panel panel-primary">
-        <div class="panel-heading">Contenu du message
+        <div class="panel-heading" id="send-view">Contenu du message
             <?= $this->Form->postLink(__(''), ['action' => 'delete', $message->id],['class' => 'btn btn-large btn-danger delete pull-right glyphicon glyphicon-trash',]) ?>
         </div>
         <div class="panel-body">
@@ -41,7 +41,4 @@
 <script>
     $("#wysyg").jqte();
     $('#repondre').hide();
-    $("#rep-bt").click(function() {
-        $('#repondre').toggle( "slow");
-    });
 </script>

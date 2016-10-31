@@ -35,13 +35,10 @@
     // tags input
     $('#to').tokenfield({
         autocomplete: {
-            source: [<?php
-                    foreach ($lists as $listuser) {
-
-        echo  $listuser;
-
-    }
-    ?>],
+            source: [
+            <?php foreach ($lists as $listuser) { echo  $listuser; }?>
+    <?php foreach ($listsk as $listsks) { echo  $listsks; }?>
+    ],
             delay: 100
         },
     allowEditing: false,
@@ -56,11 +53,16 @@
         });
     });
 
-// contacter une caserne, lien externe
-    <?php if($sendto) : ?>
-        $('#to').tokenfield('createToken', { value: "k<?= $sendto->id ?>", label: "<?= $sendto->name ?>" });
-    <?php endif ?>
-    <?php if($sendtouser) : ?>
-        $('#to').tokenfield('createToken', { value: "<?= $sendtouser->id ?>", label: "<?= $sendtouser->firstname ?> <?= $sendtouser->lastname ?>" });
-    <?php endif ?>
+
 </script>
+
+<?php if($sendto) : ?>
+<script>
+$('#to').tokenfield('createToken', { value: "k<?= $sendto->id ?>", label: "<?= $sendto->name ?>" });
+</script>
+<?php endif ?>
+<?php if($sendtouser) : ?>
+<script>
+$('#to').tokenfield('createToken', { value: "<?= $sendtouser->id ?>", label: "<?= $sendtouser->firstname ?> <?= $sendtouser->lastname ?>" });
+</script>
+<?php endif ?>

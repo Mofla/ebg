@@ -166,6 +166,14 @@ Router::prefix('Messagerie',  function($routes) {
             'id' => '[0-9]+',
         ]
     );
+    $routes->connect(
+        '/boite-d-envoi/:id-:subject',
+        ['controller' => 'Messages', 'action' => 'sendview'],
+        [
+            'pass' => ['id','subject'],
+            'id' => '[0-9]+',
+        ]
+    );
     $routes->fallbacks(DashedRoute::class);
 });
 
