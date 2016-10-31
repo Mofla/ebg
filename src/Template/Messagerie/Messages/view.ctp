@@ -35,12 +35,15 @@
     </div>
 
 
+    <!--________________________________________________Historique  des conversations-->
 
+    <div class="panel panel-success">
+        <div class="panel-heading">Historique  de la conversation
+            <?= $this->Form->button(__(''),['id' => 'hist' , 'class' => 'btn btn-large btn-success
+            delete pull-right glyphicon glyphicon-eye-open ']) ?>
 
-    <div class="panel panel-danger">
-        <div class="panel-heading">Historique  des conversations
         </div>
-        <div class="panel-body history">
+        <div class="panel-body history" id="histo">
     <?php foreach ($get_history as $history): ?>
     <?php if ($history->to_user == $user)
     {echo '<blockquote id="mp-left" class="blockquote">
@@ -76,5 +79,9 @@
         $('#repondre').hide();
         $("#rep-bt").click(function () {
             $('#repondre').toggle("slow");
+        });
+        $('#histo').hide();
+        $("#hist").click(function () {
+            $('#histo').toggle("slow");
         });
     </script>
