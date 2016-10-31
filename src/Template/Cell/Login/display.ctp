@@ -26,9 +26,9 @@ if($isConnected) {
 }
 else{
     ?>
-    <li><a href="<?= $this->Url->build(['controller' => 'Users','action' => 'login']); ?>"><i class="fa fa-plug" aria-hidden="true"></i> Connexion</a></li>
+    <li><a href="<?= $this->Url->build(['controller' => 'Users','action' => 'login', 'prefix' => false]); ?>"><i class="fa fa-plug" aria-hidden="true"></i> Connexion</a></li>
     <li class="divider"></li>
-    <li><a href="<?= $this->Url->build(['controller' => 'Users','action' => 'add']); ?>"><span class="glyphicon glyphicon-share"></span> Inscription</a></li>
+    <li><a href="<?= $this->Url->build(['controller' => 'Users','action' => 'add', 'prefix' => false]); ?>"><span class="glyphicon glyphicon-share"></span> Inscription</a></li>
 
 
 

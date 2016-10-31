@@ -147,8 +147,8 @@ Router::prefix('Messagerie',  function($routes) {
         ['controller' => 'Messages', 'action' => 'index']
     );
     $routes->connect(
-        '/ecrire-un-message',
-        ['controller' => 'Messages', 'action' => 'send']
+        '/ecrire-un-message/*',
+        ['controller' => 'Messages', 'action' => 'send' ]
     );
     $routes->connect(
         '/boite-d-envoi',

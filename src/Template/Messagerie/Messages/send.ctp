@@ -1,7 +1,6 @@
 <?php $cell = $this->cell('Messagerie',[$user]) ?>
 <?= $cell ?>
 
-
 <div class="col-md-10 ">
     <div class="panel panel-primary">
         <div id="mp-write" class="panel-heading">Envoyer un message
@@ -30,8 +29,10 @@
 
 
 <script>
+    // éditeur de texte
     $("#wysyg").jqte();
 
+    // tags input
     $('#to').tokenfield({
         autocomplete: {
             source: [<?php
@@ -55,6 +56,11 @@
         });
     });
 
-
-
+// contacter une caserne, lien externe
+    <?php if($sendto) : ?>
+        $('#to').tokenfield('createToken', { value: "k<?= $sendto->id ?>", label: "<?= $sendto->name ?>" });
+    <?php endif ?>
+    <?php if($sendtouser) : ?>
+        $('#to').tokenfield('createToken', { value: "<?= $sendtouser->id ?>", label: "<?= $sendtouser->firstname ?> <?= $sendtouser->lastname ?>" });
+    <?php endif ?>
 </script>

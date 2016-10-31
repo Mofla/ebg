@@ -132,13 +132,29 @@ class MessagesController extends AppController
     }
 
 // envoyer un message
-    public function send()
+    public function send($type = null, $id = null)
     {
         $users = TableRegistry::get('users');
         $this->loadModel('Barracks');
         $message = $this->Messages->newEntity();
         $user= $this->Auth->user('id');
         $frommp = $users->find()->where(['id' => $user])->first();
+        
+        if($id && $type == 'caserne'){
+            $sendto = $this->Barracks->find()
+                ->select('name')
+                ->where(['id' => $id])
+            ->first();
+            $sendtouser = null;
+        }
+        if($id && $type == 'membre'){
+            $sendtouser = $users->find()
+                ->select(['id','firstname', 'lastname'])
+                ->where(['id' => $id])
+                ->first();
+            $sendto = null;
+        }
+        
         if ($this->request->is('post')) {
             $this->request->data['from_user']= $user;
             $too =  $this->request->data['to'];
@@ -219,7 +235,7 @@ class MessagesController extends AppController
         foreach ($listusers as $listuser) {
             array_push($lists,'{value:"'.$listuser->id.'",label:"'.$listuser->firstname.' '.$listuser->lastname.'"},');
         }
-        $this->set(compact('lists','user','message'));
+        $this->set(compact('lists','user','message','sendto','sendtouser','type'));
         $this->set('_serialize', ['message']);
     }
 

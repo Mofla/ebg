@@ -64,7 +64,7 @@
                     <a href="<?= $this->Url->build(['controller' => 'barracks','action' => 'view', $barrack->id ,strtolower(str_replace(' ', '-', removeAccents($barrack->name)))]); ?>"
                        class="btn btn-primary btn-sm " data-original-title="Voir la fiche détaillée"
                        data-toggle="tooltip"><i class="glyphicon glyphicon-eye-open"></i> DETAILS</a>
-                    <a href="<?= $this->Url->build(['controller' => 'messages','action' => 'send']); ?>"
+                    <a href="<?= $this->Url->build(['controller' => 'messages','action' => 'send','caserne', $barrack->id , 'prefix' => 'messagerie']); ?>"
                        class="btn btn-primary  btn-sm" data-original-title="Envoyer un message privé" data-toggle="tooltip"><i
                             class="glyphicon glyphicon-envelope"></i> MP</a>
                     <?php
