@@ -49,6 +49,13 @@ class MessagesController extends AppController
             ->limit(10)
             ->offset(1);
 
+//supprime la notification
+        $notif = TableRegistry::get('Notifications');
+        $entity = $notif->find()
+            ->where(['source_id' => $id])
+            ->first();
+        $notif->delete($entity);
+
 
 // répondre au message
         if ($this->request->is('post')) {
@@ -198,8 +205,11 @@ class MessagesController extends AppController
                 $log->save($logs);
 
 // notification par email
+
+                $datamail = [$messageInsertId,$message->subject,$frommp->firstname, $frommp->lastname];
                 $recipient = $users->find()->select(['email'])->where(['id' => $exxx])->first();
                 $email = new Email('default');
+                $email->viewVars(['data' => $datamail]);
                 $email->template('default', 'default')
                     ->emailFormat('html');
                 $email->to($recipient->email)
@@ -279,13 +289,4 @@ class MessagesController extends AppController
         return $this->redirect(['action' => 'index']);
     }
 
-    //supprimer une notification de mp
-    public function deletenotif()
-    {
-        $this->autoRender = false;
-        $this->loadModel('Notifications');
-        $id = $this->request->data['id'];
-        $entity = $this->Notifications->get($id);
-        $this->Notifications->delete($entity);
-    }
 }

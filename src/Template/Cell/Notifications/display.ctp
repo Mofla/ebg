@@ -19,16 +19,3 @@
 </li>
 <?php endif; ?>
 
-
-<script>
-    $( ".delete" ).click(function() {
-        var getid = $(this).attr('id');
-        $.ajax({
-            type:'post',
-            data: 'id=' + getid ,
-            url: "<?= $this->Url->build(['controller' => 'Messages','action' => 'deletenotif' , 'prefix' => 'messagerie' ]); ?>"
-        });
-    });
-</script>
-
-
